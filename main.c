@@ -48,6 +48,9 @@ int main(void)
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
+    
+    Color startColor = RED;
+    Color instructionsColor = RED;
     //--------------------------------------------------------------------------------------
 
     // Main game loop
@@ -57,6 +60,22 @@ int main(void)
         //----------------------------------------------------------------------------------
         // TODO: Update your variables here
         //----------------------------------------------------------------------------------
+        
+        
+        if((screenHeight - (150 + screenHeight / 15)-5 < GetMouseY()) 
+            && (GetMouseY() < screenHeight - (150 + screenHeight / 15)+25) 
+            && (35< GetMouseX())
+            && (GetMouseX()< 1000)){
+            
+            startColor = GREEN;
+            if(IsMouseButtonDown(MOUSE_LEFT_BUTTON)){
+                //continue to start menu
+                startColor = BLUE;
+            }
+        }
+        else{
+            startColor = RED;
+        }
 
         // Draw
         //----------------------------------------------------------------------------------
@@ -64,11 +83,14 @@ int main(void)
 
             ClearBackground(RAYWHITE);
             
-            DrawText("START", 40, screenHeight - (150 + screenHeight / 15), 20, RED);
-            DrawText("Instructions", 40, screenHeight - 150, 20, RED);
+            DrawText("START", 40, screenHeight - (150 + screenHeight / 15), 20, startColor);
+            //DrawLine(35, screenHeight - (150 + screenHeight / 15)-5,1000, screenHeight - (150 + screenHeight / 15)+25,BLUE);
+            DrawText("Instructions", 40, screenHeight - 150, 20, instructionsColor);
 
         EndDrawing();
         //----------------------------------------------------------------------------------
+        
+        
     }
 
     // De-Initialization
