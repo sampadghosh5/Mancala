@@ -1,7 +1,10 @@
 #include "raylib.h"
+#include "main_menu.c"
 
-typedef struct {
-    int current_window;
+const int screenWidth = 1920;
+const int screenHeight = 1080;
+
+enum gameScreen {Main_Menu, Choose_Game_Mode, Choose_Difficulty, two_player_mode, Human_v_AI, Win_lose, Exit_playAnother, Instructions
     //0 = Main Menu
     //1 = Choose Game mode
     //2 = Choose Difficulty (If AI chosen earlier)
@@ -10,18 +13,14 @@ typedef struct {
     //7 = Win/Lose Screen
     //8 = Exit/Play another game
     //9 = Instructions Screen
-    } gameScreen;
-
+    };
+    
 //------------------------------------------------------------------------------------
 // Program main entry point
 //------------------------------------------------------------------------------------
 int main(void)
 {
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    const int screenWidth = 1920;
-    const int screenHeight = 1080;
-
+    
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
@@ -30,22 +29,7 @@ int main(void)
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
-
-        // Draw
-        //----------------------------------------------------------------------------------
-        BeginDrawing();
-
-            ClearBackground(RAYWHITE);
-            
-            DrawText("START", 40, screenHeight - (150 + screenHeight / 15), 20, RED);
-            DrawText("Instructions", 40, screenHeight - 150, 20, RED);
-
-        EndDrawing();
-        //----------------------------------------------------------------------------------
+        main_menu();
     }
 
     // De-Initialization
