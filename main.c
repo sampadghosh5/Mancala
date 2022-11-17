@@ -51,6 +51,9 @@ int main(void)
     
     Color startColor = RED;
     Color instructionsColor = RED;
+    
+    int startHeight = screenHeight - (150 + screenHeight / 15);
+    int instructionsHeight = screenHeight - 150;
     //--------------------------------------------------------------------------------------
 
     // Main game loop
@@ -62,8 +65,8 @@ int main(void)
         //----------------------------------------------------------------------------------
         
         
-        if((screenHeight - (150 + screenHeight / 15)-5 < GetMouseY()) 
-            && (GetMouseY() < screenHeight - (150 + screenHeight / 15)+25) 
+        if((startHeight -5 < GetMouseY()) 
+            && (GetMouseY() < startHeight+25) 
             && (35< GetMouseX())
             && (GetMouseX()< 1000)){
             
@@ -73,9 +76,19 @@ int main(void)
                 startColor = BLUE;
             }
         }
-        else{
-            startColor = RED;
+        else startColor = RED;
+        if((instructionsHeight -5 < GetMouseY()) 
+            && (GetMouseY() < instructionsHeight+25)
+            && (35< GetMouseX())
+            && (GetMouseX()< 1000)){
+            
+            instructionsColor = GREEN;
+            if(IsMouseButtonDown(MOUSE_LEFT_BUTTON)){
+                //continue to start menu
+                instructionsColor = BLUE;
+            }
         }
+        else instructionsColor = RED;
 
         // Draw
         //----------------------------------------------------------------------------------
