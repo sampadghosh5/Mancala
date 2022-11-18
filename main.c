@@ -1,39 +1,16 @@
-/*******************************************************************************************
-*
-*   raylib [core] example - Basic window
-*
-*   Welcome to raylib!
-*
-*   To test examples, just press F6 and execute raylib_compile_execute script
-*   Note that compiled executable is placed in the same folder as .c file
-*
-*   You can find all basic examples on C:\raylib\raylib\examples folder or
-*   raylib official webpage: www.raylib.com
-*
-*   Enjoy using raylib. :)
-*
-*   Example originally created with raylib 1.0, last time updated with raylib 1.0
-
-*   Example licensed under an unmodified zlib/libpng license, which is an OSI-certified,
-*   BSD-like license that allows static linking with closed source software
-*
-*   Copyright (c) 2013-2022 Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
-
 #include "raylib.h"
+#include "main_menu.c"
+#include "instructions.c"
+#include "choose_game_mode.c"
 
-typedef struct {
-    int current_window;
-    //0 = Main Menu
-    //1 = Choose Game mode
-    //2 = Choose Difficulty (If AI chosen earlier)
-    //3 = 2-player mode
-    //4 = Human vs AI mode
-    //7 = Win/Lose Screen
-    //8 = Exit/Play another game
-    //9 = Instructions Screen
-    } gameScreen;
+int current_window = 0;
+//0 = Main Menu, 1 = Choose Game Mode, 2 = Choose Difficulty if AI chosen earlier, 9 = Instructions screen
+
+const int screenWidth = 1920;
+const int screenHeight = 1080;  
+
+Color startColor = RED;
+Color instructionsColor = RED;
 
 //------------------------------------------------------------------------------------
 // Program main entry point
@@ -42,54 +19,26 @@ int main(void)
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    const int screenWidth = 1920;
-    const int screenHeight = 1080;
-
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
-
+    InitWindow(screenWidth, screenHeight, "Mancala");
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-    
-    Color startColor = RED;
-    Color instructionsColor = RED;
-    //--------------------------------------------------------------------------------------
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
-        
-        
-        if((screenHeight - (150 + screenHeight / 15)-5 < GetMouseY()) 
-            && (GetMouseY() < screenHeight - (150 + screenHeight / 15)+25) 
-            && (35< GetMouseX())
-            && (GetMouseX()< 1000)){
-            
-            startColor = GREEN;
-            if(IsMouseButtonDown(MOUSE_LEFT_BUTTON)){
-                //continue to start menu
-                startColor = BLUE;
-            }
-        }
-        else{
-            startColor = RED;
-        }
+        switch (current_window) {
+            case 0:
+                main_menu();
+                break;
+                
+            case 1:
+                choose_game_mode();
+                break;
 
-        // Draw
-        //----------------------------------------------------------------------------------
-        BeginDrawing();
+            case 9:
+                instructions();
+                break;
 
-            ClearBackground(RAYWHITE);
-            
-            DrawText("START", 40, screenHeight - (150 + screenHeight / 15), 20, startColor);
-            //DrawLine(35, screenHeight - (150 + screenHeight / 15)-5,1000, screenHeight - (150 + screenHeight / 15)+25,BLUE);
-            DrawText("Instructions", 40, screenHeight - 150, 20, instructionsColor);
-
-        EndDrawing();
-        //----------------------------------------------------------------------------------
-        
+        }      
         
     }
 
