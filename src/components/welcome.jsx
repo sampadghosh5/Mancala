@@ -1,36 +1,55 @@
 import React, { Component } from "react";
-import image from "./image.jpg";
+import image from "./image.png";
 
-const background = {
-  backgroundColor: "#741619",
+const background1 = {
+  backgroundColor: "#02577A",
   width: "100vw",
   height: "100vh",
   overflow: "auto",
 };
-const cardBackground = {
-  backgroundColor: "#891A1D",
-};
 
 const text = {
-  fontFamily: "Adventuro",
+  fontFamily: "Akrobat Black",
+};
+
+const header = {
+  fontSize: "55px",
 };
 
 class Welcome extends Component {
   state = {};
   render() {
     return (
-      <div style={background}>
-        <div className="container my-4" style={text}>
-          <div className="card text-warning mx-auto" style={cardBackground}>
-            <div className="card-body m-4">
-              <h1>Welcome to the Mancala Game!</h1>
-              <hr></hr>
-              <img
-                src={image}
-                alt="Not loading"
-                className="w-100 rounded mx-auto d-block mt-4"
-              />
-              <hr></hr>
+      <div>
+        <div className="container-fluid" style={background1}>
+          <div className="row" style={text}>
+            <div className="col text-light mx-4 my-4">
+              <div>
+                <h1 className="my-3" style={header}>
+                  Welcome to the Mancala Game!
+                </h1>
+                <hr className="mb-4"></hr>
+                <img
+                  src={image}
+                  alt="Not loading"
+                  className="w-25 d-block mx-auto my-auto"
+                />
+              </div>
+              <h2 className="mb-3">Rules of the Game:</h2>
+              <h4>
+                1. If you run into your own store, deposit one piece in it. Skip
+                your opponent's store.
+              </h4>
+              <h4>
+                2. If the last piece you drop is in your own store, you get a
+                free turn.
+              </h4>
+              <h4>
+                3. If the last piece you drop is in an empty hole on your side,
+                you capture that piece and any pieces in the hole directly
+                opposite.
+              </h4>
+              <h4>4. Always place all captured pieces in your store.</h4>
               <h2 className="my-4">
                 Choose to play against the computer in three difficulty levels:
               </h2>
@@ -41,7 +60,6 @@ class Welcome extends Component {
               <button className="btn btn-outline-light btn-block">
                 Difficult
               </button>
-              <hr></hr>
               <h2 className="my-4">Or choose to play against a friend:</h2>
               <button className="btn btn-outline-light btn-block">
                 Multiplayer
