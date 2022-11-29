@@ -28,7 +28,7 @@ class Welcome extends Component {
                 <h1 className="my-3" style={header}>
                   Welcome to the Mancala Game!
                 </h1>
-                <hr className="mb-4 border-light"></hr>
+                {/* <hr className="mb-4 border-light"></hr> */}
                 <img
                   src={image}
                   alt="Not loading"
