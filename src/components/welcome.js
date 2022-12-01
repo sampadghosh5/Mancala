@@ -17,24 +17,35 @@ const text = {
   fontFamily: "bubblegums",
 };
 
+const header = {
+  fontSize: "75px",
+};
+
 const startButton = {
-  fontFamily: "bubblegums",
   fontSize: "45px",
-  borderRadius: "25px",
+  borderRadius: "20px",
+  borderWidth: "3px",
+};
+
+const instructionsButton = {
+  fontSize: "35px",
+  borderColor: "transparent",
+  borderRadius: "20px",
 };
 class Welcome extends Component {
   state = {};
   render() {
     return (
       <div className="container-fluid" style={background1}>
-        <div className="row">
+        <div className="row" style={text}>
           <div className="col">
-            <h1 className="mt-5 text-center" style={text}>
-              Welcome to the Mancala Game!
+            <h2 className="mt-5 text-center">Welcome to the... </h2>
+            <h1 className="text-center mt-4" style={header}>
+              Mancala Game!
             </h1>
           </div>
         </div>
-        <div className="row">
+        <div className="row" style={text}>
           <div className="col">
             <img
               src={image}
@@ -44,13 +55,23 @@ class Welcome extends Component {
             />
           </div>
         </div>
-        <div className="row">
+        <div className="row" style={text}>
           <div className="col text-center">
             <button
-              className="btn btn-success btn-lg mx-auto"
+              className="btn btn-outline-success btn-lg mx-auto"
               style={startButton}
             >
               START
+            </button>
+          </div>
+        </div>
+        <div className="row" style={text}>
+          <div className="col text-center">
+            <button
+              className="btn btn-outline-dark btn-lg my-4"
+              style={instructionsButton}
+            >
+              INSTRUCTIONS
             </button>
           </div>
         </div>

@@ -4,10 +4,10 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Welcome from "./components/welcome";
-
+import Instructions from "./components/instructions";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Welcome/>);
+root.render(<Welcome />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
