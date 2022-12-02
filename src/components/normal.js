@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Board from "./board.jpg";
+import Board from "./board.png";
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -9,21 +9,22 @@ const background1 = {
 };
 
 const background2 = {
-  backgroundColor: "#CFA76E",
+  backgroundImage: `url(${Board})`,
   marginTop: "200px",
+  borderRadius: "30px",
 };
 
 const oval = {
-  height: "300px",
-  width: "200px",
-  backgroundColor: "#E2BF96",
+  height: "400px",
+  width: "190px",
+  backgroundImage: `url(${Board})`,
   borderRadius: "40px",
 };
 
 const circle = {
-  height: "110px",
-  width: "103px",
-  backgroundColor: "#E2BF96",
+  height: "174px",
+  width: "105px",
+  backgroundImage: `url(${Board})`,
   borderRadius: "35px",
 };
 class Normal extends Component {
@@ -35,38 +36,38 @@ class Normal extends Component {
           <div className="card-body">
             <div className="row">
               <div className="col">
-                <div style={oval}></div>
+                <div className="border" style={oval}></div>
               </div>
               <div className="col my-auto">
-                <div className="mb-5" style={circle}></div>
-                <div className="mt-5" style={circle}></div>
+                <div className="border mb-5" style={circle}></div>
+                <div className="border mt-5" style={circle}></div>
               </div>
               <div className="col my-auto">
-                <div className="mb-5" style={circle}></div>
-                <div className="mt-5" style={circle}></div>
+                <div className="border mb-5" style={circle}></div>
+                <div className="border mt-5" style={circle}></div>
               </div>
               <div className="col my-auto">
-                <div className="mb-5" style={circle}></div>
-                <div className="mt-5" style={circle}></div>
+                <div className="border mb-5" style={circle}></div>
+                <div className="border mt-5" style={circle}></div>
               </div>
               <div className="col my-auto">
-                <div className="mb-5" style={circle}></div>
-                <div className="mt-5" style={circle}></div>
+                <div className="border mb-5" style={circle}></div>
+                <div className="border mt-5" style={circle}></div>
               </div>
               <div className="col my-auto">
-                <div className="mb-5" style={circle}></div>
-                <div className="mt-5" style={circle}></div>
+                <div className="border mb-5" style={circle}></div>
+                <div className="border mt-5" style={circle}></div>
               </div>
               <div className="col my-auto">
-                <div className="mb-5" style={circle}></div>
-                <div className="mt-5" style={circle}></div>
+                <div className="border mb-5" style={circle}></div>
+                <div className="border mt-5" style={circle}></div>
               </div>
               <div className="col my-auto">
-                <div className="mb-5" style={circle}></div>
-                <div className="mt-5" style={circle}></div>
+                <div className="border mb-5" style={circle}></div>
+                <div className="border mt-5" style={circle}></div>
               </div>
               <div className="col">
-                <div style={oval}></div>
+                <div className="border" style={oval}></div>
               </div>
             </div>
           </div>
