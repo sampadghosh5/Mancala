@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import image from "./image.png";
+import Board from "./board.png";
+import Marble1 from "./marble1.png";
+import Marble2 from "./marble2.png";
+import Marble3 from "./marble3.png";
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -8,9 +11,29 @@ const background1 = {
   overflow: "auto",
 };
 
+const background2 = {
+  backgroundImage: `url(${Board})`,
+  marginTop: "50px",
+  marginBottom: "50px",
+  borderRadius: "30px",
+};
+
 const imageDimensions = {
-  width: "500px",
-  height: "400px",
+  height: "35px",
+  width: "35px",
+};
+const oval = {
+  height: "250px",
+  width: "150px",
+  backgroundImage: `url(${Board})`,
+  borderRadius: "40px",
+};
+
+const circle = {
+  height: "100px",
+  width: "85",
+  backgroundImage: `url(${Board})`,
+  borderRadius: "35px",
 };
 
 const text = {
@@ -47,12 +70,314 @@ class Welcome extends Component {
         </div>
         <div className="row" style={text}>
           <div className="col">
-            <img
-              src={image}
-              alt="Not loading"
-              className="d-block mx-auto my-5"
-              style={imageDimensions}
-            />
+            <div className="container-fluid">
+              <div className="card w-75 mx-auto" style={background2}>
+                <div className="card-body">
+                  <div className="row">
+                    <div className="col">
+                      <div className="border" style={oval}></div>
+                    </div>
+                    <div className="col my-auto">
+                      <div className="border mb-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div className="border mt-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div className="border mb-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div className="border mt-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div className="border mb-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div className="border mt-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div className="border mb-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div className="border mt-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div className="border mb-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div className="border mt-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div className="border mb-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div className="border mt-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div className="border mb-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div className="border mt-5" style={circle}>
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="border" style={oval}></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="row" style={text}>
