@@ -3,6 +3,12 @@ import Board from "./board.png";
 import Marble1 from "./marble1.png";
 import Marble2 from "./marble2.png";
 import Marble3 from "./marble3.png";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -382,22 +388,26 @@ class Welcome extends Component {
         </div>
         <div className="row" style={text}>
           <div className="col text-center">
-            <button
-              className="btn btn-outline-success btn-lg mx-auto"
-              style={startButton}
-            >
-              START
-            </button>
+            <Link to="/start">
+              <button
+                className="btn btn-outline-success btn-lg mx-auto"
+                style={startButton}
+              >
+                START
+              </button>
+            </Link>
           </div>
         </div>
         <div className="row" style={text}>
           <div className="col text-center">
-            <button
-              className="btn btn-outline-dark btn-lg my-4"
-              style={instructionsButton}
-            >
-              INSTRUCTIONS
-            </button>
+            <Link to="/instructions">
+              <button
+                className="btn btn-outline-dark btn-lg my-4"
+                style={instructionsButton}
+              >
+                INSTRUCTIONS
+              </button>
+            </Link>
           </div>
         </div>
       </div>

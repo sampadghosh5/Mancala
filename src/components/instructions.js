@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -55,12 +61,14 @@ class Instructions extends Component {
         </div>
         <div className="row my-5" style={text}>
           <div className="col text-center">
-            <button
-              className="btn btn-outline-primary btn-lg mx-auto"
-              style={backButton}
-            >
-              BACK
-            </button>
+            <Link to="/">
+              <button
+                className="btn btn-outline-primary btn-lg mx-auto"
+                style={backButton}
+              >
+                BACK
+              </button>
+            </Link>
           </div>
         </div>
       </div>

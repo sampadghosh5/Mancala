@@ -1,4 +1,10 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from 'react-router-dom';
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -35,23 +41,29 @@ class Start extends Component {
         </div>
         <div className="row my-5" style={text}>
           <div className="col text-center">
-            <button className="btn btn-success btn-lg mx-auto" style={button}>
-              NORMAL
-            </button>
+            <Link to="/normal">
+              <button className="btn btn-success btn-lg mx-auto" style={button}>
+                NORMAL
+              </button>
+            </Link>
           </div>
         </div>
         <div className="row my-5" style={text}>
           <div className="col text-center">
-            <button className="btn btn-danger btn-lg mx-auto" style={button}>
-              EXTREME
-            </button>
+          <Link to="/challenge">
+              <button className="btn btn-danger btn-lg mx-auto" style={button}>
+                EXTREME
+              </button>
+            </Link>
           </div>
         </div>
         <div className="row my-5" style={text}>
           <div className="col text-center">
-            <button className="btn btn-primary btn-lg mx-auto" style={button}>
-              MULTIPLAYER
-            </button>
+            <Link to="/multiplayer">
+              <button className="btn btn-primary btn-lg mx-auto" style={button}>
+                MULTIPLAYER
+              </button>
+            </Link>
           </div>
         </div>
       </div>

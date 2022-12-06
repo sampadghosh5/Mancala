@@ -9,9 +9,19 @@ import Start from "./components/start";
 import Challenge from "./components/challenge";
 import Multiplayer from "./components/multiplayer";
 import Instructions from "./components/instructions";
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
+  } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Welcome />);
+root.render(
+    <Router>
+        <App />
+    </Router>
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
