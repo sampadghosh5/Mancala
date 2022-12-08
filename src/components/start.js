@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -24,6 +19,12 @@ const header = {
 const button = {
   fontSize: "45px",
   borderRadius: "10px",
+  borderWidth: "3px",
+};
+
+const backButton = {
+  fontSize: "45px",
+  borderRadius: "20px",
   borderWidth: "3px",
 };
 
@@ -50,7 +51,7 @@ class Start extends Component {
         </div>
         <div className="row my-5" style={text}>
           <div className="col text-center">
-          <Link to="/challenge">
+            <Link to="/challenge">
               <button className="btn btn-danger btn-lg mx-auto" style={button}>
                 EXTREME
               </button>
@@ -62,6 +63,18 @@ class Start extends Component {
             <Link to="/multiplayer">
               <button className="btn btn-primary btn-lg mx-auto" style={button}>
                 MULTIPLAYER
+              </button>
+            </Link>
+          </div>
+        </div>
+        <div className="row my-5" style={text}>
+          <div className="col text-center">
+            <Link to="/">
+              <button
+                className="btn btn-outline-primary btn-lg mx-auto"
+                style={backButton}
+              >
+                BACK
               </button>
             </Link>
           </div>

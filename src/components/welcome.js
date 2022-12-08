@@ -3,18 +3,14 @@ import Board from "./board.png";
 import Marble1 from "./marble1.png";
 import Marble2 from "./marble2.png";
 import Marble3 from "./marble3.png";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const background1 = {
   backgroundColor: "#C2D9F7",
   width: "100vw",
   height: "100vh",
   overflow: "auto",
+  fontFamily: "bubblegums",
 };
 
 const background2 = {
@@ -66,14 +62,11 @@ class Welcome extends Component {
   render() {
     return (
       <div className="container-fluid" style={background1}>
-        <div className="row" style={text}>
-          <div className="col">
-            <h2 className="mt-5 text-center">Welcome to the... </h2>
-            <h1 className="text-center mt-4" style={header}>
-              Mancala Game!
-            </h1>
-          </div>
-        </div>
+        <h2 className="mt-5 text-center">Welcome to the... </h2>
+        <h1 className="text-center mt-4" style={header}>
+          Mancala Game!
+        </h1>
+
         <div className="row" style={text}>
           <div className="col">
             <div className="container-fluid">
@@ -88,19 +81,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -108,19 +101,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -130,19 +123,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -150,19 +143,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -172,19 +165,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -192,19 +185,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -214,19 +207,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -234,19 +227,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -256,19 +249,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -276,19 +269,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -298,19 +291,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -318,19 +311,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -340,19 +333,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>
@@ -360,19 +353,19 @@ class Welcome extends Component {
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto mt-2"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-start"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto"
+                          className="d-block mx-auto float-end"
                           style={imageDimensions}
                         />
                       </div>

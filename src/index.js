@@ -3,24 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Welcome from "./components/welcome";
-import Normal from "./components/normal";
-import Start from "./components/start";
-import Challenge from "./components/challenge";
-import Multiplayer from "./components/multiplayer";
-import Instructions from "./components/instructions";
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-  } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <Router>
-        <App />
-    </Router>
+  <Router>
+    <App />
+  </Router>
 );
 
 // If you want to start measuring performance in your app, pass a function
