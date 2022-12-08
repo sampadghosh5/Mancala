@@ -362,7 +362,7 @@ class Multiplayer extends Component {
         </div>
         <div className="row my-5" style={text}>
           <div className="col text-center">
-            <Link to="/">
+            <Link to="/start">
               <button
                 className="btn btn-outline-primary btn-lg mx-auto"
                 style={backButton}
