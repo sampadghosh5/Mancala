@@ -10,7 +10,7 @@ const background1 = {
   width: "100vw",
   height: "100vh",
   overflow: "auto",
-  fontFamily: "bubblegums",
+  fontFamily: "Comic Sans MS",
 };
 
 const background2 = {
@@ -21,8 +21,8 @@ const background2 = {
 };
 
 const imageDimensions = {
-  height: "35px",
-  width: "35px",
+  height: "15px",
+  width: "15px",
 };
 const oval = {
   height: "250px",
@@ -33,13 +33,13 @@ const oval = {
 
 const circle = {
   height: "100px",
-  width: "85",
+  maxWidth: "85px",
   backgroundImage: `url(${Board})`,
   borderRadius: "35px",
 };
 
 const text = {
-  fontFamily: "bubblegums",
+  fontFamily: "Comic Sans MS",
 };
 
 const header = {
@@ -72,300 +72,294 @@ class Welcome extends Component {
             <div className="container-fluid">
               <div className="card w-75 mx-auto" style={background2}>
                 <div className="card-body">
-                  <div className="row">
+                  <div className="row mt-4">
                     <div className="col">
                       <div className="border" style={oval}></div>
                     </div>
                     <div className="col my-auto">
-                      <div className="border mb-5" style={circle}>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto mt-2"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto float-start"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto float-end"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                       </div>
-                      <div className="border mt-5" style={circle}>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto mt-2"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto float-start"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto float-end"
-                          style={imageDimensions}
-                        />
-                      </div>
-                    </div>
-                    <div className="col my-auto">
-                      <div className="border mb-5" style={circle}>
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="d-block mx-auto mt-2"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble2}
-                          alt="Not loading"
-                          className="d-block mx-auto float-start"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble3}
-                          alt="Not loading"
-                          className="d-block mx-auto float-end"
-                          style={imageDimensions}
-                        />
-                      </div>
-                      <div className="border mt-5" style={circle}>
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="d-block mx-auto mt-2"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble2}
-                          alt="Not loading"
-                          className="d-block mx-auto float-start"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble3}
-                          alt="Not loading"
-                          className="d-block mx-auto float-end"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div className="border mb-5" style={circle}>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto mt-2"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto float-start"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto float-end"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                       </div>
-                      <div className="border mt-5" style={circle}>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto mt-2"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto float-start"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto float-end"
-                          style={imageDimensions}
-                        />
-                      </div>
-                    </div>
-                    <div className="col my-auto">
-                      <div className="border mb-5" style={circle}>
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="d-block mx-auto mt-2"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble2}
-                          alt="Not loading"
-                          className="d-block mx-auto float-start"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble3}
-                          alt="Not loading"
-                          className="d-block mx-auto float-end"
-                          style={imageDimensions}
-                        />
-                      </div>
-                      <div className="border mt-5" style={circle}>
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="d-block mx-auto mt-2"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble2}
-                          alt="Not loading"
-                          className="d-block mx-auto float-start"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble3}
-                          alt="Not loading"
-                          className="d-block mx-auto float-end"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div className="border mb-5" style={circle}>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto mt-2"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto float-start"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto float-end"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                       </div>
-                      <div className="border mt-5" style={circle}>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto mt-2"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto float-start"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto float-end"
-                          style={imageDimensions}
-                        />
-                      </div>
-                    </div>
-                    <div className="col my-auto">
-                      <div className="border mb-5" style={circle}>
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="d-block mx-auto mt-2"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble2}
-                          alt="Not loading"
-                          className="d-block mx-auto float-start"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble3}
-                          alt="Not loading"
-                          className="d-block mx-auto float-end"
-                          style={imageDimensions}
-                        />
-                      </div>
-                      <div className="border mt-5" style={circle}>
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="d-block mx-auto mt-2"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble2}
-                          alt="Not loading"
-                          className="d-block mx-auto float-start"
-                          style={imageDimensions}
-                        />
-                        <img
-                          src={Marble3}
-                          alt="Not loading"
-                          className="d-block mx-auto float-end"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div className="border mb-5" style={circle}>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto mt-2"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto float-start"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto float-end"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                       </div>
-                      <div className="border mt-5" style={circle}>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="d-block mx-auto mt-2"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble2}
                           alt="Not loading"
-                          className="d-block mx-auto float-start"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                         <img
                           src={Marble3}
                           alt="Not loading"
-                          className="d-block mx-auto float-end"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                      </div>
+                      <div
+                        className="border mb-5 hstack flex-wrap"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
                           style={imageDimensions}
                         />
                       </div>

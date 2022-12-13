@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -14,12 +9,9 @@ const background1 = {
 };
 
 const text = {
-  fontFamily: "bubblegums",
+  fontFamily: "Comic Sans MS",
 };
 
-const text2 = {
-  fontFamily: "Comfortaa",
-};
 const header = {
   fontSize: "75px",
 };
@@ -42,7 +34,7 @@ class Instructions extends Component {
             </h1>
           </div>
         </div>
-        <div className="row" style={text2}>
+        <div className="row" style={text}>
           <div className="col mx-5">
             <h2 className="my-4">
               1. If you run into your own store, deposit one piece in it. Skip
