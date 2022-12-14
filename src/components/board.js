@@ -1,12 +1,16 @@
-pits = Array(14).fill(3);
+//@ts-check
+
+let pits = Array(14).fill(3);
 pits[0] = 0;
 pits[7] = 0;
 
 function updateBoard(index /* index of pit */) {
-    pits_copy = pits.slice();
-    carry = pits_copy[i];
+    /* needs to check for which player */
+    let i = index;
+    let pits_copy = pits.slice();
+    let carry = pits_copy[i];
     pits_copy[i] = 0;
-    i++
+    i++;
     while(carry > 0) {
        pits_copy[i] += 1;
        carry--;
