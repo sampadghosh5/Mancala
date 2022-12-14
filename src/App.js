@@ -7,27 +7,19 @@ import Start from "./components/start";
 import Challenge from "./components/challenge";
 import Multiplayer from "./components/multiplayer";
 import Instructions from "./components/instructions";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from 'react-router-dom';
+import "./fonts/bubblegums.TTF";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-           <Routes>
-                 <Route exact path='/' element={< Welcome />}></Route>
-                 <Route exact path='/instructions' element={< Instructions />}></Route>
-                 <Route exact path='/start' element={< Start />}></Route>
-                 <Route exact path='/normal' element={< Normal />}></Route>
-                 <Route exact path='/challenge' element={< Challenge />}></Route>
-                 <Route exact path='/multiplayer' element={< Multiplayer />}></Route>
-          </Routes>
-
-
-  
-    
+    <Routes>
+      <Route exact path="/" element={<Welcome />}></Route>
+      <Route exact path="/instructions" element={<Instructions />}></Route>
+      <Route exact path="/start" element={<Start />}></Route>
+      <Route exact path="/normal" element={<Normal />}></Route>
+      <Route exact path="/challenge" element={<Challenge />}></Route>
+      <Route exact path="/multiplayer" element={<Multiplayer />}></Route>
+    </Routes>
   );
 }
 
