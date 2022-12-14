@@ -15,7 +15,10 @@ function updateBoard(index /* index of pit */) {
        pits_copy[i] += 1;
        carry--;
        i++;
-       if(i == 14)  i = 0;
+       if(i === 14)  i = 0;
     }
     return pits_copy;
 }
+
+export { pits , updateBoard};
+
