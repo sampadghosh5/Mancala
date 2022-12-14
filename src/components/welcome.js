@@ -85,7 +85,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -97,7 +96,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -111,7 +109,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -123,7 +120,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -137,7 +133,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -149,7 +144,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -163,7 +157,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -175,7 +168,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -189,7 +181,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -201,7 +192,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -215,7 +205,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -227,7 +216,6 @@ class Welcome extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
                       </div>
                     </div>
                     <div className="col">
