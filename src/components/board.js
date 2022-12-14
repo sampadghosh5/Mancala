@@ -13,10 +13,10 @@ function updateBoard(pits, index /* index of pit */) {
     if (carry > 0) pits[i] = 0;
     i++;
     while(carry > 0) {
+       if(i === 14)  i = 0;
        pits[i] += 1;
        carry--;
        i++;
-       if(i === 14)  i = 0;
     }
 }
 
