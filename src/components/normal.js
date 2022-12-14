@@ -28,6 +28,9 @@ const oval = {
   width: "150px",
   backgroundImage: `url(${Board})`,
   borderRadius: "40px",
+  textAlignVertical: "center", 
+  textAlign: "center",
+  paddingTop: "110px"
 };
 
 const circle = {
@@ -68,12 +71,14 @@ class Normal extends Component {
                 <div className="card-body">
                   <div className="row mt-4">
                     <div className="col">
-                      <div className="border" style={oval}>
+                      <div id ="0" className="border align-items-center" style={oval}>
                       <h5 className="mx-auto">{pits[0]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div onClick={() => this.handleClick(13)}
+                      <div 
+                        id = "13"
+                        onClick={() => this.handleClick(13)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -85,7 +90,8 @@ class Normal extends Component {
                         />
                         <h5 className="mx-auto">{pits[13]}</h5>
                       </div>
-                      <div onClick={() => this.handleClick(1)}
+                      <div  id = "1"
+                         onClick={() => this.handleClick(1)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -98,8 +104,8 @@ class Normal extends Component {
                         <h5 className="mx-auto">{pits[1]}</h5>
                       </div>
                     </div>
-                    <div className="col my-auto">
-                      <div onClick={() => this.handleClick(12)}
+                    <div  className="col my-auto">
+                      <div id = "12" onClick={() => this.handleClick(12)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -111,7 +117,7 @@ class Normal extends Component {
                         />
                         <h5 className="mx-auto">{pits[12]}</h5>
                       </div>
-                      <div onClick={() => this.handleClick(2)}
+                      <div  id = "2" onClick={() => this.handleClick(2)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -125,7 +131,7 @@ class Normal extends Component {
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div onClick={() => this.handleClick(11)}
+                      <div  id = "11" onClick={() => this.handleClick(11)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -137,7 +143,7 @@ class Normal extends Component {
                         />
                         <h5 className="mx-auto">{pits[11]}</h5>
                       </div>
-                      <div onClick={() => this.handleClick(3)}
+                      <div  id = "3" onClick={() => this.handleClick(3)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -151,7 +157,7 @@ class Normal extends Component {
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div onClick={() => this.handleClick(10)}
+                      <div  id = "10" onClick={() => this.handleClick(10)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -163,7 +169,7 @@ class Normal extends Component {
                         />
                         <h5 className="mx-auto">{pits[10]}</h5>
                       </div>
-                      <div onClick={() => this.handleClick(4)}
+                      <div  id = "4" onClick={() => this.handleClick(4)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -177,7 +183,7 @@ class Normal extends Component {
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div onClick={() => this.handleClick(9)}
+                      <div  id = "9" onClick={() => this.handleClick(9)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -189,7 +195,7 @@ class Normal extends Component {
                         />
                         <h5 className="mx-auto">{pits[9]}</h5>
                       </div>
-                      <div onClick={() => this.handleClick(5)}
+                      <div  id = "5" onClick={() => this.handleClick(5)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -203,7 +209,7 @@ class Normal extends Component {
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div onClick={() => this.handleClick(8)}
+                      <div  id = "8" onClick={() => this.handleClick(8)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -215,7 +221,7 @@ class Normal extends Component {
                         />
                         <h5 className="mx-auto">{pits[8]}</h5>
                       </div>
-                      <div onClick={() => this.handleClick(6)}
+                      <div  id = "6" onClick={() => this.handleClick(6)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -229,7 +235,7 @@ class Normal extends Component {
                       </div>
                     </div>
                     <div className="col">
-                      <div className="border" style={oval}>
+                      <div  id = "7" className="border" style={oval}>
                       <h5 className="mx-auto">{pits[7]}</h5>
                       </div>
                     </div>

@@ -1,12 +1,20 @@
 //@ts-check
 
+import SelectInput from "@mui/material/Select/SelectInput";
+
 let pits = Array(14).fill(3);
 pits[0] = 0;
 pits[7] = 0;
 
 let isPlayer1 = true;
 
-function updateBoard(pits, index /* index of pit */) {
+function sleep(ms) {
+    return new Promise((resolve) => {
+      setTimeout(resolve, ms);
+    });
+  }
+
+async function updateBoard(pits, index /* index of pit */) {
     /* needs to check for which player */
     let i = index;
     let carry = pits[i];
@@ -14,9 +22,18 @@ function updateBoard(pits, index /* index of pit */) {
     i++;
     while(carry > 0) {
        if(i === 14)  i = 0;
+       // @ts-ignore
+       document.getElementById(i).style.color = "#9cf7e4";
        pits[i] += 1;
+       {/*flash color*/}
+        
+       await sleep(100);
+       // @ts-ignore
+       document.getElementById(i).style.color = ""; 
        carry--;
        i++;
+       
+       
     }
 }
 
