@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import Marble1 from "./marble1.png";
 import { pits } from "./board.js";
 import {

@@ -44,6 +44,22 @@ const backButton = {
   fontFamily: "Regular",
 };
 
+const header = {
+  fontSize: "75px",
+};
+
+const startButton = {
+  fontSize: "45px",
+  borderRadius: "20px",
+  borderWidth: "3px",
+};
+
+const instructionsButton = {
+  fontSize: "35px",
+  borderColor: "transparent",
+  borderRadius: "20px",
+};
+
 export {
   background1,
   background2,
@@ -52,4 +68,7 @@ export {
   oval,
   text,
   imageDimensions,
+  header,
+  instructionsButton,
+  startButton,
 };

@@ -1,60 +1,18 @@
 import React, { Component } from "react";
-import Board from "./board.png";
 import Marble1 from "./marble1.png";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 
-const background1 = {
-  backgroundColor: "#C2D9F7",
-  width: "100vw",
-  height: "100vh",
-  overflow: "auto",
-  fontFamily: "Regular",
-};
-
-const background2 = {
-  backgroundImage: `url(${Board})`,
-  marginTop: "50px",
-  marginBottom: "50px",
-  borderRadius: "30px",
-};
-
-const imageDimensions = {
-  height: "15px",
-  width: "15px",
-};
-const oval = {
-  height: "250px",
-  width: "150px",
-  backgroundImage: `url(${Board})`,
-  borderRadius: "40px",
-};
-
-const circle = {
-  height: "100px",
-  maxWidth: "85px",
-  backgroundImage: `url(${Board})`,
-  borderRadius: "35px",
-};
-
-const text = {
-  fontFamily: "Regular",
-};
-
-const header = {
-  fontSize: "75px",
-};
-
-const startButton = {
-  fontSize: "45px",
-  borderRadius: "20px",
-  borderWidth: "3px",
-};
-
-const instructionsButton = {
-  fontSize: "35px",
-  borderColor: "transparent",
-  borderRadius: "20px",
-};
+import {
+  background1,
+  background2,
+  text,
+  imageDimensions,
+  oval,
+  circle,
+  startButton,
+  instructionsButton,
+  header,
+} from "./styles.js";
 class Welcome extends Component {
   state = {};
   render() {
