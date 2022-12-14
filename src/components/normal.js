@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Board from "./board.png";
 import Marble1 from "./marble1.png";
+import { pits } from "./board.js";
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -72,7 +73,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[0]}</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -98,7 +99,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">pits[2]</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
