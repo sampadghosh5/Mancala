@@ -1,183 +1,123 @@
 import React, { Component } from "react";
 import Marble1 from "./marble1.png";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
-import {
-  background1,
-  background2,
-  text,
-  imageDimensions,
-  oval,
-  circle,
-  startButton,
-  instructionsButton,
-  header,
-} from "./styles.js";
+import "./styles.css";
 class Welcome extends Component {
   state = {};
   render() {
     return (
-      <div className="container-fluid" style={background1}>
+      <div className="container-fluid background1">
         <h2 className="mt-5 text-center">Welcome to the... </h2>
-        <h1 className="text-center mt-4" style={header}>
-          Mancala Game!
-        </h1>
+        <h1 className="text-center mt-4 header">Mancala Game!</h1>
 
-        <div className="row" style={text}>
+        <div className="row text">
           <div className="col">
             <div className="container-fluid">
-              <div className="card w-75 mx-auto" style={background2}>
+              <div className="card w-75 mx-auto background2">
                 <div className="card-body">
                   <div className="row mt-4">
                     <div className="col">
-                      <div className="border" style={oval}></div>
+                      <div className="border oval"></div>
                     </div>
                     <div className="col my-auto">
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
+                      <div className="border d-flex align-items-center mb-5 circle">
                         <img
                           src={Marble1}
                           alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
+                          className="mx-auto imageDimensions"
                         />
                       </div>
                     </div>
                     <div className="col">
-                      <div className="border" style={oval}></div>
+                      <div className="border oval"></div>
                     </div>
                   </div>
                 </div>
@@ -185,25 +125,19 @@ class Welcome extends Component {
             </div>
           </div>
         </div>
-        <div className="row" style={text}>
+        <div className="row text">
           <div className="col text-center">
             <Link to="/start">
-              <button
-                className="btn btn-outline-success btn-lg mx-auto"
-                style={startButton}
-              >
+              <button className="btn btn-outline-success btn-lg mx-auto startButton">
                 START
               </button>
             </Link>
           </div>
         </div>
-        <div className="row" style={text}>
+        <div className="row text">
           <div className="col text-center">
             <Link to="/instructions">
-              <button
-                className="btn btn-outline-dark btn-lg my-4"
-                style={instructionsButton}
-              >
+              <button className="btn btn-outline-dark btn-lg my-4 instructionsButton">
                 INSTRUCTIONS
               </button>
             </Link>
