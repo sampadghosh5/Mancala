@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Board from "./board.png";
 import Marble1 from "./marble1.png";
-import { pits } from "./board.js";
+import { pits, updateBoard } from "./board.js";
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -49,7 +49,15 @@ const backButton = {
 };
 
 class Normal extends Component {
-  state = {};
+  state = {
+    counter: 0
+  }
+
+  handleClick(i) {
+    updateBoard(pits, i);
+    this.setState({counter: this.counter + 1});
+  }
+
   render() {
     return (
       <div className="container-fluid" style={background1}>
@@ -63,7 +71,7 @@ class Normal extends Component {
                       <div className="border" style={oval}></div>
                     </div>
                     <div className="col my-auto">
-                      <div
+                      <div onClick={() => this.handleClick(13)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -73,9 +81,9 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">{pits[0]}</h5>
+                        <h5 className="mx-auto">{pits[13]}</h5>
                       </div>
-                      <div
+                      <div onClick={() => this.handleClick(1)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -85,37 +93,11 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
-                      </div>
-                    </div>
-                    <div className="col my-auto">
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
-                        />
-                        <h5 className="mx-auto">pits[2]</h5>
-                      </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
-                        />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[1]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div
+                      <div onClick={() => this.handleClick(12)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -125,9 +107,9 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[12]}</h5>
                       </div>
-                      <div
+                      <div onClick={() => this.handleClick(2)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -137,37 +119,11 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
-                      </div>
-                    </div>
-                    <div className="col my-auto">
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
-                        />
-                        <h5 className="mx-auto">1</h5>
-                      </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
-                        />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[2]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div
+                      <div onClick={() => this.handleClick(11)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -177,9 +133,9 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[11]}</h5>
                       </div>
-                      <div
+                      <div onClick={() => this.handleClick(3)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -189,11 +145,11 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[3]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
-                      <div
+                      <div onClick={() => this.handleClick(10)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -203,9 +159,9 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[10]}</h5>
                       </div>
-                      <div
+                      <div onClick={() => this.handleClick(4)}
                         className="border d-flex align-items-center mb-5"
                         style={circle}
                       >
@@ -215,7 +171,59 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[4]}</h5>
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div onClick={() => this.handleClick(9)}
+                        className="border d-flex align-items-center mb-5"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="mx-auto"
+                          style={imageDimensions}
+                        />
+                        <h5 className="mx-auto">{pits[9]}</h5>
+                      </div>
+                      <div onClick={() => this.handleClick(5)}
+                        className="border d-flex align-items-center mb-5"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="mx-auto"
+                          style={imageDimensions}
+                        />
+                        <h5 className="mx-auto">{pits[5]}</h5>
+                      </div>
+                    </div>
+                    <div className="col my-auto">
+                      <div onClick={() => this.handleClick(8)}
+                        className="border d-flex align-items-center mb-5"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="mx-auto"
+                          style={imageDimensions}
+                        />
+                        <h5 className="mx-auto">{pits[8]}</h5>
+                      </div>
+                      <div onClick={() => this.handleClick(6)}
+                        className="border d-flex align-items-center mb-5"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="mx-auto"
+                          style={imageDimensions}
+                        />
+                        <h5 className="mx-auto">{pits[6]}</h5>
                       </div>
                     </div>
                     <div className="col">
