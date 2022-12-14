@@ -9,7 +9,7 @@ const background1 = {
 };
 
 const text = {
-  fontFamily: "Comic Sans MS",
+  fontFamily: "Regular",
 };
 
 const header = {
