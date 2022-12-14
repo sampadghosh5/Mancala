@@ -68,7 +68,9 @@ class Normal extends Component {
                 <div className="card-body">
                   <div className="row mt-4">
                     <div className="col">
-                      <div className="border" style={oval}></div>
+                      <div className="border" style={oval}>
+                      <h5 className="mx-auto">{pits[0]}</h5>
+                      </div>
                     </div>
                     <div className="col my-auto">
                       <div onClick={() => this.handleClick(13)}
@@ -227,7 +229,9 @@ class Normal extends Component {
                       </div>
                     </div>
                     <div className="col">
-                      <div className="border" style={oval}></div>
+                      <div className="border" style={oval}>
+                      <h5 className="mx-auto">{pits[7]}</h5>
+                      </div>
                     </div>
                   </div>
                 </div>
