@@ -99,6 +99,42 @@ class Welcome extends Component {
                           className="d-block mx-auto"
                           style={imageDimensions}
                         />
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble2}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
+                        <img
+                          src={Marble3}
+                          alt="Not loading"
+                          className="d-block mx-auto"
+                          style={imageDimensions}
+                        />
                       </div>
                       <div
                         className="border mb-5 hstack flex-wrap"
