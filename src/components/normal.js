@@ -1,51 +1,16 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Board from "./board.png";
 import Marble1 from "./marble1.png";
-
-const background1 = {
-  backgroundColor: "#C2D9F7",
-  width: "100vw",
-  height: "100vh",
-  overflow: "auto",
-  fontFamily: "Regular",
-};
-
-const background2 = {
-  backgroundImage: `url(${Board})`,
-  marginTop: "50px",
-  marginBottom: "50px",
-  borderRadius: "30px",
-};
-
-const imageDimensions = {
-  height: "15px",
-  width: "15px",
-};
-const oval = {
-  height: "250px",
-  width: "150px",
-  backgroundImage: `url(${Board})`,
-  borderRadius: "40px",
-};
-
-const circle = {
-  height: "100px",
-  maxWidth: "85px",
-  backgroundImage: `url(${Board})`,
-  borderRadius: "35px",
-};
-
-const text = {
-  fontFamily: "Regular",
-};
-
-const backButton = {
-  fontSize: "45px",
-  borderRadius: "20px",
-  borderWidth: "3px",
-  fontFamily: "Regular",
-};
+import { pits } from "./board.js";
+import {
+  background1,
+  background2,
+  text,
+  imageDimensions,
+  oval,
+  circle,
+  backButton,
+} from "./styles.js";
 
 class Normal extends Component {
   state = {};
@@ -60,32 +25,11 @@ class Normal extends Component {
                 <div className="card-body">
                   <div className="row mt-4">
                     <div className="col">
-                      <div className="border" style={oval}></div>
-                    </div>
-                    <div className="col my-auto">
                       <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
+                        className="border d-flex align-items-center"
+                        style={oval}
                       >
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
-                        />
-                        <h5 className="mx-auto">1</h5>
-                      </div>
-                      <div
-                        className="border d-flex align-items-center mb-5"
-                        style={circle}
-                      >
-                        <img
-                          src={Marble1}
-                          alt="Not loading"
-                          className="mx-auto"
-                          style={imageDimensions}
-                        />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[0]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -99,7 +43,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[13]}</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -111,7 +55,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[1]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -125,7 +69,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[12]}</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -137,7 +81,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[2]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -151,7 +95,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[11]}</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -163,7 +107,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[3]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -177,7 +121,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[10]}</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -189,7 +133,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[4]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -203,7 +147,7 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[9]}</h5>
                       </div>
                       <div
                         className="border d-flex align-items-center mb-5"
@@ -215,11 +159,40 @@ class Normal extends Component {
                           className="mx-auto"
                           style={imageDimensions}
                         />
-                        <h5 className="mx-auto">1</h5>
+                        <h5 className="mx-auto">{pits[5]}</h5>
                       </div>
                     </div>
-                    <div className="col">
-                      <div className="border" style={oval}></div>
+                    <div className="col my-auto">
+                      <div
+                        className="border d-flex align-items-center mb-5"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="mx-auto"
+                          style={imageDimensions}
+                        />
+                        <h5 className="mx-auto">{pits[8]}</h5>
+                      </div>
+                      <div
+                        className="border d-flex align-items-center mb-5"
+                        style={circle}
+                      >
+                        <img
+                          src={Marble1}
+                          alt="Not loading"
+                          className="mx-auto"
+                          style={imageDimensions}
+                        />
+                        <h5 className="mx-auto">{pits[6]}</h5>
+                      </div>
+                    </div>
+                    <div
+                      className="border d-flex align-items-center mx-2"
+                      style={oval}
+                    >
+                      <h5 className="mx-auto">{pits[0]}</h5>
                     </div>
                   </div>
                 </div>
