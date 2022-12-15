@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Board from "./board.png";
 import Marble1 from "./marble1.png";
-import { pits, updateBoard } from "./board.js";
+import { pits, pit_click, updateBoard } from "./board.js";
 
 const background1 = {
   backgroundColor: "#C2D9F7",
@@ -57,7 +57,7 @@ class Normal extends Component {
   }
 
   handleClick(i) {
-    updateBoard(pits, i);
+    pit_click(i);
     this.setState({counter: this.counter + 1});
   }
 

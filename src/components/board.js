@@ -1,12 +1,20 @@
 //@ts-check
 
 import SelectInput from "@mui/material/Select/SelectInput";
+import {Player} from './player.js';
 
 let pits = Array(14).fill(3);
 pits[0] = 0;
 pits[7] = 0;
 
-let isPlayer1 = true;
+const player1 = new Player(0);
+const player2 = new Player(7);
+player1.setTurn();
+
+function endgame() {
+    console.log("Game over!");
+}
+
 
 function sleep(ms) {
     return new Promise((resolve) => {
@@ -39,25 +47,41 @@ async function updateBoard(pits, index /* index of pit */) {
        
        carry--;
        i++;
-       await sleep (100);
-       
+       //await sleep (100);
     }
 }
 
-function handleClick(index) {
-    if(isPlayer1) {
-        if(index < 7 && index > 0) {
-            updateBoard(pits, index)
+function pit_click(index) {
+    if(player1.isnext) {
+        if(player1.valid_moves.includes(index)) {
+            updateBoard(pits, index);
+            player1.updatetotal();
+            player2.updatetotal();
+            if(player2.valid_moves.length > 0) {
+                player1.setTurn();
+                player2.setTurn();
+            }  else if (player1.valid_moves.length === 0){
+                endgame();
+            }
+        }
+        return;
+    } else if (player2.isnext) {
+        if(player2.valid_moves.includes(index)){
+            updateBoard(pits, index);
+            player2.updatetotal();
+            player1.updatetotal();
+            if(player1.valid_moves.length > 0) {
+                player1.setTurn();
+                player2.setTurn();
+            } else if (player2.valid_moves.length === 0){
+                endgame();
+            }
         }
         return;
     } else {
-        if(index < 14 && index > 7) {
-            updateBoard(pits, index);
-        }
         return;
     }
-    return;
 }
 
-export { pits , updateBoard, handleClick};
+export { pits , updateBoard, pit_click};
 
