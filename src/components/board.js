@@ -14,6 +14,15 @@ function sleep(ms) {
     });
   }
 
+async function flash(i){
+    // @ts-ignore
+    document.getElementById(i).style.color = "#9cf7e4";
+    
+    await sleep(100);
+    // @ts-ignore
+    setTimeout(document.getElementById(i).style.color = "", 100);
+}
+
 async function updateBoard(pits, index /* index of pit */) {
     /* needs to check for which player */
     let i = index;
@@ -22,17 +31,15 @@ async function updateBoard(pits, index /* index of pit */) {
     i++;
     while(carry > 0) {
        if(i === 14)  i = 0;
-       // @ts-ignore
-       document.getElementById(i).style.color = "#9cf7e4";
-       pits[i] += 1;
+       
        {/*flash color*/}
-        
-       await sleep(100);
-       // @ts-ignore
-       document.getElementById(i).style.color = ""; 
+       pits[i] += 1;
+       console.log(i);
+       flash(i);
+       
        carry--;
        i++;
-       
+       await sleep (100);
        
     }
 }
