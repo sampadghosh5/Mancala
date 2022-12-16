@@ -35,18 +35,22 @@ async function flash(i){
     setTimeout(document.getElementById(i).style.color = "", 100);
 }
 
-function updateBoard(pits, index /* index of pit */) {
+/**
+ * @param {Array} c_pits
+ * @param {any} index
+ */
+function updateBoard(c_pits, index /* index of pit */) {
     /* needs to check for which player */
     let i = index;
-    let carry = pits[i];
-    if (carry > 0) pits[i] = 0;
+    let carry = c_pits[i];
+    if (carry > 0) c_pits[i] = 0;
     i++;
     while(carry > 0) {
        if(i === 14)  i = 0;
        
        {/*flash color*/}
-       pits[i] += 1;
-       console.log(i + " has " + pits[i]);
+       c_pits[i] += 1;
+       console.log(i + " has " + c_pits[i]);
        flash(i);
        
        carry--;
@@ -58,31 +62,36 @@ function updateBoard(pits, index /* index of pit */) {
         player1.setTurn();
         player2.setTurn();
     }
+    
+    return c_pits;
 }
 
+/**
+ * @param {any} index
+ */
 function pit_click(index) {
     if(player1.isnext) {
-        if(player1.valid_moves.includes(index)) {
-            updateBoard(pits, index);
-            player1.updatetotal();
-            player2.updatetotal();
-            if(player2.valid_moves.length > 0) {
+        if(player1.valid_moves(pits).includes(index)) {
+            pits = updateBoard(pits, index);
+            player1.updatetotal(pits);
+            player2.updatetotal(pits);
+            if(player2.valid_moves(pits).length > 0) {
                 player1.setTurn();
                 player2.setTurn();
-            }  else if (player1.valid_moves.length === 0){
+            }  else if (player1.valid_moves(pits).length === 0){
                 endgame();
             }
         }
         return;
     } else if (player2.isnext) {
-        if(player2.valid_moves.includes(index)){
+        if(player2.valid_moves(pits).includes(index)){
             updateBoard(pits, index);
-            player2.updatetotal();
-            player1.updatetotal();
-            if(player1.valid_moves.length > 0) {
+            player2.updatetotal(pits);
+            player1.updatetotal(pits);
+            if(player1.valid_moves(pits).length > 0) {
                 player1.setTurn();
                 player2.setTurn();
-            } else if (player2.valid_moves.length === 0){
+            } else if (player2.valid_moves(pits).length === 0){
                 endgame();
             }
         }
@@ -92,5 +101,5 @@ function pit_click(index) {
     }
 }
 
-export { pits , updateBoard, pit_click};
+export { pits , updateBoard, pit_click, player1, player2};
 
