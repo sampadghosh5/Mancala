@@ -23,7 +23,7 @@ class Normal extends Component {
                 <div className="card-body">
                   <div className="row mt-4">
                     <div className="col">
-                      <div className="border d-flex align-items-center oval">
+                      <div id = "0" className="border d-flex align-items-center oval">
                         <h5 className="mx-auto">{pits[0]}</h5>
                       </div>
                     </div>
@@ -184,8 +184,8 @@ class Normal extends Component {
                       </div>
                     </div>
                     <div className="col">
-                      <div className="border d-flex align-items-center oval">
-                        <h5 className="mx-auto">{pits[0]}</h5>
+                      <div id="7" className="border d-flex align-items-center oval">
+                        <h5 className="mx-auto">{pits[7]}</h5>
                       </div>
                     </div>
                   </div>

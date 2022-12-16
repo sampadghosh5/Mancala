@@ -62,10 +62,14 @@ class BoardTest extends Component {
       e.target.style.background = "red";
     }
     function resetBackground(e) {
-      e.target.style.background = "";
-    }
-    function changeText(e) {
-      e.target.innerHTML = "";
+        e.target.style.background = '';
+      }
+      function settogglable(i) {
+        document.getElementById(i).onMouseEnter = changeBackground();
+        document.getElementById(i).onMouseLeave = resetBackground();
+      }
+    function changeText(e){
+        e.target.innerHTML="";
     }
     function update() {
       for (let i = 0; i < 14; i++) {

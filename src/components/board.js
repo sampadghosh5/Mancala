@@ -13,6 +13,10 @@ player1.setTurn();
 
 function endgame() {
     console.log("Game over!");
+    // @ts-ignore
+    //document.getElementById("win").classList.remove("hide");
+    // @ts-ignore
+    //document.getElementById("win").classList.add("show");
 }
 
 
@@ -31,7 +35,7 @@ async function flash(i){
     setTimeout(document.getElementById(i).style.color = "", 100);
 }
 
-async function updateBoard(pits, index /* index of pit */) {
+function updateBoard(pits, index /* index of pit */) {
     /* needs to check for which player */
     let i = index;
     let carry = pits[i];
@@ -42,12 +46,17 @@ async function updateBoard(pits, index /* index of pit */) {
        
        {/*flash color*/}
        pits[i] += 1;
-       console.log(i);
+       console.log(i + " has " + pits[i]);
        flash(i);
        
        carry--;
        i++;
        //await sleep (100);
+    }
+    // if the last marble fell in a home pot, the player gets another turn.
+    if(i==1 || i ==8){
+        player1.setTurn();
+        player2.setTurn();
     }
 }
 
