@@ -22,7 +22,7 @@ class Normal extends Component {
               <h1 id="player" className="turn">
                 text4
               </h1>
-              <div className="card w-75 mx-auto background2">
+              <div id="game" className="card w-75 mx-auto background2">
                 <div className="card-body">
                   <div className="row mt-4">
                     <div className="col">

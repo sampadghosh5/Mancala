@@ -7,6 +7,8 @@ import SelectInput from "@mui/material/Select/SelectInput";
 import { getAImove } from "./maximin.js";
 import { Player } from "./player.js";
 import { handleBreakpoints } from "@mui/system";
+import Win from "./win.png";
+import Lose from "./lose.png";
 
 let pits = Array(14).fill(3);
 pits[0] = 0;
@@ -37,29 +39,43 @@ function endgame() {
         pits[i] = 0;
     }
   }
+  // @ts-ignore
+  document.getElementById("game").style.display = "none";
+  // @ts-ignore
+    document.getElementById("backButton").innerText = "Try Again";
   if (pits[7] > pits[0]) {
     // @ts-ignore
     document.getElementById("player").innerText = "Red Wins!!";
     // @ts-ignore
     document.getElementById("player").style.color = "red";
     // @ts-ignore
-    document.getElementById("backButton").innerText = "Try Again";
+    // document.getElementById("win").src = "/static/media/win.4f08588f34e6c5873b9d.png";
+    
   } else {
     // @ts-ignore
     document.getElementById("player").innerText = "Blue Wins!!";
     // @ts-ignore
     document.getElementById("player").style.color = "blue";
     // @ts-ignore
-    document.getElementById("backButton").innerText = "Try Again";
+    // document.getElementById("lose").src = "/static/media/lose.89c7dd3d7e3806d71567.png";
   }
 }
 
-function newgame() {
+function newgame(e) {
   pits = Array(14).fill(3);
   pits[0] = 0;
   pits[7] = 0;
   player1.setTurn();
   p1Turn();
+  /*
+  // @ts-ignore
+  document.getElementById("win").src = ""
+  // @ts-ignore
+  document.getElementById("lose").src = ""
+  */
+  // @ts-ignore
+  document.getElementById("game").style.display = "block";
+  console.log("new game")
 }
 
 function sleep(ms) {
@@ -112,9 +128,14 @@ function updateBoard(c_pits, index, player) {
   }
   i--;
   // if the last marble fell in a home pot, the player gets another turn.
+  console.log(player.homepit);
+  console.log(i);
   if (i == player.homepit) {
     end_on_homepit = true;
-    // TODO: add functionality for multiplayer
+    if(AI == false){
+        player1.setTurn();
+        player2.setTurn();
+    }
   }
   // if we end in an empty pot, steal from opposite
   else if (new_pits[i] == 1 && player.ismypit(new_pits, i)) {
@@ -150,7 +171,7 @@ function pit_click(index) {
       if (player2.valid_moves(pits).length > 0) {
         player1.setTurn();
         player2.setTurn();
-        playAImove();
+        if(AI) playAImove();
       } else if (player1.valid_moves(pits).length === 0) {
         endgame();
       }

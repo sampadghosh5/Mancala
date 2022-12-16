@@ -1,6 +1,6 @@
 import { elementAcceptingRef } from "@mui/utils";
 import React, { Component } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate} from "react-router-dom";
 import Board from "./board.png";
 import Marble1 from "./marble1.png";
 import { pits } from "./board.js";
@@ -104,7 +104,9 @@ class BoardTest extends Component {
 
     function endAlert() {
       alert("You've won the game!");
-    }
+    } 
+
+
     return (
       
       <div className="container-fluid" style={background1}>
