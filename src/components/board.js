@@ -1,5 +1,6 @@
 //@ts-check
 
+// @ts-ignore
 import SelectInput from "@mui/material/Select/SelectInput";
 import { getAImove } from "./maximin.js";
 import {Player} from './player.js';
@@ -16,10 +17,26 @@ player1.setTurn();
 
 function endgame() {
     console.log("Game over!");
-    // @ts-ignore
-    //document.getElementById("win").classList.remove("hide");
-    // @ts-ignore
-    //document.getElementById("win").classList.add("show");
+    if(pits[7] > pits[0]){
+        // @ts-ignore
+        document.getElementById("player").innerText = "Red Wins!!";
+        // @ts-ignore
+        document.getElementById("player").style.color = "red";
+    }
+    else{
+        // @ts-ignore
+        document.getElementById("player").innerText = "Blue Wins!!";
+        // @ts-ignore
+        document.getElementById("player").style.color = "blue";
+    }
+}
+
+function newgame(){
+    pits = Array(14).fill(3);
+    pits[0] = 0;
+    pits[7] = 0;
+    player1.setTurn();
+    p1Turn();
 }
 
 
@@ -29,11 +46,11 @@ function sleep(ms) {
     });
   }
 
-async function flash(i){
+async function flash(i, color){
     // @ts-ignore
-    document.getElementById(i).style.color = "#9cf7e4";
+    document.getElementById(i).style.color = color;
     
-    await sleep(100);
+    await sleep(500);
     // @ts-ignore
     setTimeout(document.getElementById(i).style.color = "", 100);
 }
@@ -53,19 +70,37 @@ function updateBoard(c_pits, index /* index of pit */) {
        if(i === 14)  i = 0;
        
        {/*flash color*/}
-       new_pits[i] += 1;
-       console.log(i + " has " + new_pits[i]);
-       flash(i);
+       // skip over other player's pot
+       if((player1.isnext) && (i == 0)){ carry++}
+       else if((player2.isnext) && (i == 7)){ carry++}
+       else{
+            c_pits[i] += 1;
+            //console.log(i + " has " + c_pits[i]);
+            flash(i, "#9cf7e4");
+       }
+       
        
        carry--;
        i++;
        //await sleep (100);
     }
-    //if the last marble fell in a home pot, the player gets another turn.
-    if(i==1 || i ==8){
-        console.log("This happened and my code broke :(");
+    i--;
+    // if the last marble fell in a home pot, the player gets another turn.
+    if(i==0 || i ==7){
         player1.setTurn();
         player2.setTurn();
+    }
+    // if we end in an empty pot, steal from opposite
+    else if(pits[i]==1){
+        let opposite = 14-i;
+        if(player1.isnext){
+            pits[7] += pits[opposite];
+        }
+        else if(player2.isnext){
+            pits[0] += pits[opposite];
+        }
+        pits[opposite] = 0;
+        flash(opposite, "yellow");
     }
     
     return new_pits;
@@ -94,7 +129,6 @@ function pit_click(index) {
                 endgame();
             }
         }
-        return;
     } else if (player2.isnext) {
         if(player2.valid_moves(pits).includes(index)){
             updateBoard(pits, index);
@@ -107,11 +141,73 @@ function pit_click(index) {
                 endgame();
             }
         }
-        return;
     } else {
-        return;
     }
+    if(player1.isnext) p1Turn();
+    else if(player2.isnext) p2Turn();
 }
 
-export { pits , updateBoard, pit_click, player1, player2};
+//cosmetic functions
+// @ts-ignore
+function changeBackgroundP1(e) {
+    e.target.style.background = "red";
+}
+// @ts-ignore
+function changeBackgroundP2(e) {
+    e.target.style.background = "blue";
+}
+function resetBackground(e) {
+    e.target.style.background = '';
+}
+// @ts-ignore
+function settogglable(id, player) {
+    var pot = document.getElementById(id);
+    if(player == 1){
+        // @ts-ignore
+        pot.addEventListener('mouseenter',changeBackgroundP1);
+    }
+    else{
+        // @ts-ignore
+        pot.addEventListener('mouseenter',changeBackgroundP2);
+    }
+    
+    // @ts-ignore
+    pot.addEventListener('mouseleave',resetBackground);
+}
+// @ts-ignore
+function setuntogglable(id) {
+    var pot = document.getElementById(id);
+    // @ts-ignore
+    pot.removeEventListener('mouseenter',changeBackgroundP1);
+    // @ts-ignore
+    pot.removeEventListener('mouseenter',changeBackgroundP2);
+    // @ts-ignore
+    //foo.removeEventListener('mouseleave',resetBackground);
+}
+
+function p1Turn(){
+    for(var n = 1; n < 7; n++){
+        settogglable(n, 1);
+        setuntogglable(14-n);
+    }
+    
+    // @ts-ignore
+    document.getElementById("player").innerText = "Red's Turn";
+    // @ts-ignore
+    document.getElementById("player").style.color = "red";
+}
+
+function p2Turn(){
+    for(var n = 13; n > 6; n--){
+        settogglable(n, 2);
+        setuntogglable(14-n);
+    }
+    // @ts-ignore
+    document.getElementById("player").innerText = "Blue's Turn";
+    // @ts-ignore
+    document.getElementById("player").style.color = "blue";
+}
+
+
+export { pits , updateBoard, pit_click, newgame, player1, player2};
 

@@ -62,14 +62,20 @@ class BoardTest extends Component {
       e.target.style.background = "red";
     }
     function resetBackground(e) {
-      e.target.style.background = "";
-    }
-    function settogglable(i) {
-      document.getElementById(i).onMouseEnter = changeBackground();
-      document.getElementById(i).onMouseLeave = resetBackground();
-    }
-    function changeText(e) {
-      e.target.innerHTML = "";
+        e.target.style.background = '';
+      }
+      function settogglable() {
+        var foo = document.getElementById("1");
+        foo.addEventListener('mouseenter',changeBackground);
+        foo.addEventListener('mouseleave',resetBackground);
+      }
+      function setuntogglable() {
+        var foo = document.getElementById("1");
+        foo.removeEventListener('mouseenter',changeBackground);
+        foo.removeEventListener('mouseleave',resetBackground);
+      }
+    function changeText(e){
+        e.target.innerHTML="";
     }
     function update() {
       for (let i = 0; i < 14; i++) {
@@ -219,6 +225,12 @@ class BoardTest extends Component {
         </div>
         <div className="btn" onClick={set}>
           set
+        </div>
+        <div className="btn" onClick={settogglable}>
+          set togglable
+        </div>
+        <div className="btn" onClick={setuntogglable}>
+          set untogglable
         </div>
         <div className="row my-5" style={text}>
           <div className="col text-center">

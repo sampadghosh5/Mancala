@@ -58,14 +58,20 @@
   border-radius: 20px;
 }
 
-.player1{
-  
+.redBorder{
+  border-color: red !important;
+  border-width: 3px !important;
 }
-
-.player2{
-
+.blueBorder{
+  border-color: blue !important;
+  border-width: 3px !important;
 }
-
-.inactive{
-
+.turn{
+  text-align: center;
+  margin-top:20px;
+  margin-bottom:-15px;
+}
+.pottext{
+  font-size:50px;
+  font-weight: bold;
 }
