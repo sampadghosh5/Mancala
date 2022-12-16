@@ -8,7 +8,7 @@ import {Player} from './player.js';
 let pits = Array(14).fill(3);
 pits[0] = 0;
 pits[7] = 0;
-const AI = true;
+let AI = true;
 const difficulty = 1;
 let end_on_homepit = false;
 
@@ -87,11 +87,12 @@ function updateBoard(c_pits, index, player) {
     }
     i--;
     // if the last marble fell in a home pot, the player gets another turn.
-    if(i === player.homepit){
+    if(i == player.homepit){
         end_on_homepit = true;
+        // TODO: add functionality!
     }
     // if we end in an empty pot, steal from opposite
-    else if(new_pits[i] === 1){
+    else if(new_pits[i] == 1){
         let opposite = 14-i;
         new_pits[player.homepit] += new_pits[opposite];
         new_pits[opposite] = 0;
@@ -166,6 +167,10 @@ function pit_click(index) {
     else if(player2.isnext) p2Turn();
 }
 
+function notAI(){
+    AI = false;
+}
+
 //cosmetic functions
 // @ts-ignore
 function changeBackgroundP1(e) {
@@ -228,5 +233,5 @@ function p2Turn(){
 }
 
 
-export { pits , updateBoard, pit_click, newgame, player1, player2};
+export { pits , updateBoard, pit_click, newgame, player1, player2, notAI};
 

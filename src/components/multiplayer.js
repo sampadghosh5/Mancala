@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Marble1 from "./marble1.png";
-import { pits, pit_click, updateBoard, newgame} from "./board.js";
+import { pits, pit_click, updateBoard, newgame, notAI} from "./board.js";
 import "./styles.css";
 class Multiplayer extends Component {
   state = {
@@ -16,7 +16,7 @@ class Multiplayer extends Component {
   render() {
     return (
       <div className="container-fluid background1" onLoad={() => newgame()}>
-        <div className="row text">
+        <div className="row text "onLoad={() => notAI()}>
           <div className="col">
             <div className="container-fluid">
               <h1 id="player" className="turn">text4</h1>
