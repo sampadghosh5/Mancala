@@ -14,6 +14,9 @@ class Instructions extends Component {
         <div className="row text">
           <div className="col mx-5">
             <h2 className="my-4">
+              Choose one pot on your side and remove the marbles from it. Drop those marbles counterclockwise, one in each pot.
+            </h2>
+            <h2 className="my-4">
               1. If you run into your own store, deposit one piece in it. Skip
               your opponent's store.
             </h2>

@@ -82,8 +82,18 @@ class BoardTest extends Component {
       console.log(pits[13], pits[12], pits[11], pits[10], pits[9], pits[8]);
       console.log(pits[1], pits[2], pits[3], pits[4], pits[5], pits[6]);
     }
+    function ding(){
+      document.getElementById("ding").classList.remove("show");
+      document.getElementById("ding").classList.add("hide");
+    }
     return (
       <div className="container-fluid" style={background1}>
+        <div id="ding" className="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+          <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
         <div className="row" style={text}>
           <div className="col">
             <div className="container-fluid">
@@ -213,6 +223,7 @@ class BoardTest extends Component {
         </div>
         <div className="btn" onClick={update}>update</div>
         <div className="btn" onClick={set}>set</div>
+        <div className="btn" onClick={ding}>alert</div>
         <div className="row my-5" style={text}>
           <div className="col text-center">
             <Link to="/start">
