@@ -52,6 +52,9 @@ const backButton = {
   borderWidth: "3px",
   fontFamily: "Comic Sans MS",
 };
+const hidden = {
+  display:"none",
+}
 {
   /*comment*/
 }
@@ -95,16 +98,47 @@ class BoardTest extends Component {
       console.log(pits[1], pits[2], pits[3], pits[4], pits[5], pits[6]);
     }
     function ding() {
-      document.getElementById("ding").classList.remove("show");
-      document.getElementById("ding").classList.add("hide");
+      document.getElementById("ding").style.display = "none";
+      document.getElementById("win").style.display = "block";
     }
 
     function endAlert() {
       alert("You've won the game!");
     }
     return (
+      
       <div className="container-fluid" style={background1}>
-        <div className="row" style={text}>
+        
+        <div id="win" className="container-fluid background1" style={hidden}>
+            <div className="row text">
+              <div className="col">
+                <h1 className="my-5 text-center header">CONGRATULATIONS!</h1>
+              </div>
+            </div>
+            <div className="row text text-center">
+              <div className="col mx-5">
+                <h2 className="my-4">You have won the game!</h2>
+                <img
+                  src={Image}
+                  class="rounded mx-auto d-block"
+                  alt="This won't display"
+                ></img>
+              </div>
+            </div>
+            <div className="row my-5 text">
+              <div className="col text-center">
+                <Link to="/">
+                  <button className="btn btn-outline-dark btn-lg mx-auto backButton">
+                    Try again
+                  </button>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+
+        
+        <div id = "ding" className="row" style={text}>
           <div className="col">
             <div className="container-fluid">
               <div className="card w-75 mx-auto" style={background2}>
@@ -231,6 +265,9 @@ class BoardTest extends Component {
         </div>
         <div className="btn" onClick={setuntogglable}>
           set untogglable
+        </div>
+        <div className="btn" onClick={ding}>
+          hide
         </div>
         <div className="row my-5" style={text}>
           <div className="col text-center">

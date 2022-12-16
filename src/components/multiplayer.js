@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Marble1 from "./marble1.png";
-import { pits, pit_click, updateBoard, newgame, notAI} from "./board.js";
+import { pits, pit_click, updateBoard, newgame, setAI} from "./board.js";
 import "./styles.css";
 class Multiplayer extends Component {
   state = {
@@ -16,7 +16,7 @@ class Multiplayer extends Component {
   render() {
     return (
       <div className="container-fluid background1" onLoad={() => newgame()}>
-        <div className="row text "onLoad={() => notAI()}>
+        <div className="row text "onLoad={() => setAI(false)}>
           <div className="col">
             <div className="container-fluid">
               <h1 id="player" className="turn">text4</h1>
@@ -25,7 +25,7 @@ class Multiplayer extends Component {
                   <div className="row mt-4">
                     <div className="col">
                       <div id = "0" className="border d-flex align-items-center oval blueBorder">
-                        <h5 className="mx-auto">{pits[0]}</h5>
+                        <h5 className="mx-auto pottext">{pits[0]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -186,7 +186,7 @@ class Multiplayer extends Component {
                     </div>
                     <div className="col">
                       <div id="7" className="border d-flex align-items-center oval redBorder">
-                        <h5 className="mx-auto">{pits[7]}</h5>
+                        <h5 className="mx-auto pottext">{pits[7]}</h5>
                       </div>
                     </div>
                   </div>

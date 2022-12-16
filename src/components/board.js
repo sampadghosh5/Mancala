@@ -89,7 +89,7 @@ function updateBoard(c_pits, index, player) {
     // if the last marble fell in a home pot, the player gets another turn.
     if(i == player.homepit){
         end_on_homepit = true;
-        // TODO: add functionality!
+        // TODO: add functionality for multiplayer
     }
     // if we end in an empty pot, steal from opposite
     else if(new_pits[i] == 1){
@@ -167,8 +167,11 @@ function pit_click(index) {
     else if(player2.isnext) p2Turn();
 }
 
-function notAI(){
-    AI = false;
+/**
+ * @param {boolean} yes
+ */
+function setAI(yes){
+    AI = yes;
 }
 
 //cosmetic functions
@@ -233,5 +236,5 @@ function p2Turn(){
 }
 
 
-export { pits , updateBoard, pit_click, newgame, player1, player2, notAI};
+export { pits , updateBoard, pit_click, newgame, player1, player2, setAI};
 

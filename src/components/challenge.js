@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Marble1 from "./marble1.png";
-import { pits, pit_click, updateBoard } from "./board.js";
+import { pits, pit_click, updateBoard, newgame, setAI} from "./board.js";
 import "./styles.css";
 class Challenge extends Component {
   state = {
@@ -15,16 +15,17 @@ class Challenge extends Component {
 
   render() {
     return (
-      <div className="container-fluid background1">
-        <div className="row text">
+      <div className="container-fluid background1" onLoad={() => newgame()}>
+        <div className="row text" onLoad={() => setAI(true)}>
           <div className="col">
             <div className="container-fluid">
+              <h1 id="player" className="turn">text4</h1>
               <div className="card w-75 mx-auto background2">
                 <div className="card-body">
                   <div className="row mt-4">
                     <div className="col">
-                      <div className="border d-flex align-items-center oval">
-                        <h5 className="mx-auto">{pits[0]}</h5>
+                      <div id = "0" className="border d-flex align-items-center oval blueBorder">
+                        <h5 className="mx-auto pottext">{pits[0]}</h5>
                       </div>
                     </div>
                     <div className="col my-auto">
@@ -184,8 +185,8 @@ class Challenge extends Component {
                       </div>
                     </div>
                     <div className="col">
-                      <div className="border d-flex align-items-center oval">
-                        <h5 className="mx-auto">{pits[0]}</h5>
+                      <div id="7" className="border d-flex align-items-center oval redBorder">
+                        <h5 className="mx-auto pottext">{pits[7]}</h5>
                       </div>
                     </div>
                   </div>
