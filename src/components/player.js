@@ -15,7 +15,8 @@ class Player {
      */
     valid_moves(c_pits) {
         let validmoves = [];
-        for(let i = this.homepit + 1; i < (this.homepit + 7); i++) {
+        const lastpit = (this.homepit === 0) ? 14 : this.homepit;
+        for(let i = (lastpit - 1); i > (lastpit - 7); i--) {
             if(c_pits[i] > 0) {
                 validmoves.push(i);
             }
