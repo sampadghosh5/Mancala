@@ -62,14 +62,14 @@ class BoardTest extends Component {
       e.target.style.background = "red";
     }
     function resetBackground(e) {
-        e.target.style.background = '';
-      }
-      function settogglable(i) {
-        document.getElementById(i).onMouseEnter = changeBackground();
-        document.getElementById(i).onMouseLeave = resetBackground();
-      }
-    function changeText(e){
-        e.target.innerHTML="";
+      e.target.style.background = "";
+    }
+    function settogglable(i) {
+      document.getElementById(i).onMouseEnter = changeBackground();
+      document.getElementById(i).onMouseLeave = resetBackground();
+    }
+    function changeText(e) {
+      e.target.innerHTML = "";
     }
     function update() {
       for (let i = 0; i < 14; i++) {
@@ -92,31 +92,12 @@ class BoardTest extends Component {
       document.getElementById("ding").classList.remove("show");
       document.getElementById("ding").classList.add("hide");
     }
+
+    function endAlert() {
+      alert("You've won the game!");
+    }
     return (
       <div className="container-fluid" style={background1}>
-        <div className="row">
-          <div className="col">
-            <div
-              class="alert alert-success alert-dismissible fade show text-center mt-5 w-75 mx-auto"
-              role="alert"
-            >
-              <h1>CONGRATULATIONS</h1>
-              <br></br>
-              <h3>You won the game!</h3>
-              <br></br>
-              <h3>Take another crack against the computer or a friend.</h3>
-              <br></br>
-              <Link to="/start">
-                <button
-                  className="btn btn-outline-success btn-lg mx-auto"
-                  style={backButton}
-                >
-                  BACK
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
         <div className="row" style={text}>
           <div className="col">
             <div className="container-fluid">
