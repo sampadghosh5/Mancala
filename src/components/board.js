@@ -1,11 +1,14 @@
 //@ts-check
 
 import SelectInput from "@mui/material/Select/SelectInput";
+import { getAImove } from "./maximin.js";
 import {Player} from './player.js';
 
 let pits = Array(14).fill(3);
 pits[0] = 0;
 pits[7] = 0;
+const AI = true;
+const difficulty = 3;
 
 const player1 = new Player(0);
 const player2 = new Player(7);
@@ -42,28 +45,30 @@ async function flash(i){
 function updateBoard(c_pits, index /* index of pit */) {
     /* needs to check for which player */
     let i = index;
-    let carry = c_pits[i];
-    if (carry > 0) c_pits[i] = 0;
+    let new_pits = c_pits.slice();
+    let carry = new_pits[i];
+    if (carry > 0) new_pits[i] = 0;
     i++;
     while(carry > 0) {
        if(i === 14)  i = 0;
        
        {/*flash color*/}
-       c_pits[i] += 1;
-       console.log(i + " has " + c_pits[i]);
+       new_pits[i] += 1;
+       console.log(i + " has " + new_pits[i]);
        flash(i);
        
        carry--;
        i++;
        //await sleep (100);
     }
-    // if the last marble fell in a home pot, the player gets another turn.
+    //if the last marble fell in a home pot, the player gets another turn.
     if(i==1 || i ==8){
+        console.log("This happened and my code broke :(");
         player1.setTurn();
         player2.setTurn();
     }
     
-    return c_pits;
+    return new_pits;
 }
 
 /**
@@ -76,6 +81,13 @@ function pit_click(index) {
             player1.updatetotal(pits);
             player2.updatetotal(pits);
             if(player2.valid_moves(pits).length > 0) {
+                if(AI) {
+                    console.log("AI baby");
+                    pits = updateBoard(pits, getAImove(player2, pits, difficulty))
+                    player1.updatetotal(pits);
+                    player2.updatetotal(pits);
+                    return;
+                }
                 player1.setTurn();
                 player2.setTurn();
             }  else if (player1.valid_moves(pits).length === 0){
