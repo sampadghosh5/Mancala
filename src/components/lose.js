@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./styles.css";
 import Image from "./lose.png";
+
+const imageDimension = {
+  height: "250px",
+  width: "400px",
+};
 class Lose extends Component {
   state = {};
   render() {
@@ -17,8 +22,9 @@ class Lose extends Component {
             <h2>You have lost the game.</h2>
             <img
               src={Image}
-              class="rounded mx-auto d-block"
+              className="rounded mx-auto d-block mt-4"
               alt="This won't display"
+              style={imageDimension}
             ></img>
           </div>
         </div>

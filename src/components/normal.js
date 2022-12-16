@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Marble1 from "./marble1.png";
-import { pits, pit_click, updateBoard, newgame} from "./board.js";
+import { pits, pit_click, updateBoard, newgame } from "./board.js";
 import "./styles.css";
 class Normal extends Component {
   state = {
@@ -19,12 +19,17 @@ class Normal extends Component {
         <div className="row text">
           <div className="col">
             <div className="container-fluid">
-              <h1 id="player" className="turn">text4</h1>
+              <h1 id="player" className="turn">
+                text4
+              </h1>
               <div className="card w-75 mx-auto background2">
                 <div className="card-body">
                   <div className="row mt-4">
                     <div className="col">
-                      <div id = "0" className="border d-flex align-items-center oval blueBorder">
+                      <div
+                        id="0"
+                        className="border d-flex align-items-center oval blueBorder"
+                      >
                         <h5 className="mx-auto pottext">{pits[0]}</h5>
                       </div>
                     </div>
@@ -185,7 +190,10 @@ class Normal extends Component {
                       </div>
                     </div>
                     <div className="col">
-                      <div id="7" className="border d-flex align-items-center oval redBorder">
+                      <div
+                        id="7"
+                        className="border d-flex align-items-center oval redBorder"
+                      >
                         <h5 className="mx-auto pottext">{pits[7]}</h5>
                       </div>
                     </div>
@@ -198,7 +206,10 @@ class Normal extends Component {
         <div className="row my-5 text">
           <div className="col text-center">
             <Link to="/start">
-              <button className="btn btn-outline-primary btn-lg mx-auto backButton">
+              <button
+                id="backButton"
+                className="btn btn-outline-primary btn-lg mx-auto backButton"
+              >
                 BACK
               </button>
             </Link>
