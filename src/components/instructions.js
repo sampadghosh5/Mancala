@@ -1,40 +1,17 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
-const background1 = {
-  backgroundColor: "#C2D9F7",
-  width: "100vw",
-  height: "100vh",
-  overflow: "auto",
-};
-
-const text = {
-  fontFamily: "Regular",
-};
-
-const header = {
-  fontSize: "75px",
-};
-
-const backButton = {
-  fontSize: "45px",
-  borderRadius: "20px",
-  borderWidth: "3px",
-};
-
+import "./styles.css";
 class Instructions extends Component {
   state = {};
   render() {
     return (
-      <div className="container-fluid" style={background1}>
-        <div className="row" style={text}>
+      <div className="container-fluid background1">
+        <div className="row text">
           <div className="col">
-            <h1 className="my-5 text-center" style={header}>
-              Rules of the Game:
-            </h1>
+            <h1 className="my-5 text-center header">Rules of the Game:</h1>
           </div>
         </div>
-        <div className="row" style={text}>
+        <div className="row text">
           <div className="col mx-5">
             <h2 className="my-4">
               1. If you run into your own store, deposit one piece in it. Skip
@@ -51,13 +28,10 @@ class Instructions extends Component {
             </h2>
           </div>
         </div>
-        <div className="row my-5" style={text}>
+        <div className="row my-5 text">
           <div className="col text-center">
             <Link to="/">
-              <button
-                className="btn btn-outline-primary btn-lg mx-auto"
-                style={backButton}
-              >
+              <button className="btn btn-outline-primary btn-lg mx-auto backButton">
                 BACK
               </button>
             </Link>

@@ -1,0 +1,59 @@
+.background1 {
+  background-color: #c2d9f7;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  font-family: Regular;
+}
+
+.background2 {
+  background-image: url("./board.png");
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 30px;
+}
+
+.imageDimensions {
+  height: 15px;
+  width: 15px;
+}
+.oval {
+  height: 250px;
+  width: 150px;
+  background-image: url("./board.png");
+  border-radius: 40px;
+}
+
+.circle {
+  height: 100px;
+  max-width: 85px;
+  background-image: url("./board.png");
+  border-radius: 35px;
+}
+
+.text {
+  font-family: Regular;
+}
+
+.backButton {
+  font-size: 45px;
+  border-radius: 20px;
+  border-width: 3px;
+  font-family: Regular;
+}
+
+.header {
+  font-size: 75px;
+}
+
+.startButton {
+  font-size: 45px;
+  border-radius: 20px;
+  border-width: 3px;
+}
+
+.instructionsButton {
+  font-size: 35px;
+  border-color: transparent;
+  border-radius: 20px;
+}
