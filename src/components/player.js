@@ -34,6 +34,15 @@ class Player {
     setTurn() {
         this.isnext = !this.isnext;
     }
+
+    ismypit(c_pits, i) {
+        let mypits = [];
+        const lastpit = (this.homepit === 0) ? 14 : this.homepit;
+        for(let i = (lastpit - 1); i > (lastpit - 7); i--) {
+            mypits.push(i);
+        }
+        return mypits.includes(i);
+    }
 }
 
 export {Player};

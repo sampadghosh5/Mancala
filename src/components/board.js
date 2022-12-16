@@ -6,6 +6,7 @@ import React from "react";
 import SelectInput from "@mui/material/Select/SelectInput";
 import { getAImove } from "./maximin.js";
 import { Player } from "./player.js";
+import { handleBreakpoints } from "@mui/system";
 
 let pits = Array(14).fill(3);
 pits[0] = 0;
@@ -13,6 +14,7 @@ pits[7] = 0;
 let AI = true;
 const difficulty = 1;
 let end_on_homepit = false;
+let game_over = false;
 
 const player1 = new Player(7);
 const player2 = new Player(0);
@@ -20,6 +22,21 @@ player1.setTurn();
 
 function endgame() {
   console.log("Game over!");
+  game_over = true;
+  for(let i = 1; i < 13; i++) {
+    if(i === player1.homepit) {
+        continue;
+    }
+    if(player1.ismypit(pits, i)) {
+        pits[player1.homepit] += pits[i];
+        pits[i] = 0;
+    }
+
+    if(player2.ismypit(pits, i)) {
+        pits[player2.homepit] += pits[i];
+        pits[i] = 0;
+    }
+  }
   if (pits[7] > pits[0]) {
     // @ts-ignore
     document.getElementById("player").innerText = "Red Wins!!";
@@ -100,7 +117,7 @@ function updateBoard(c_pits, index, player) {
     // TODO: add functionality for multiplayer
   }
   // if we end in an empty pot, steal from opposite
-  else if (new_pits[i] == 1) {
+  else if (new_pits[i] == 1 && player.ismypit(new_pits, i)) {
     let opposite = 14 - i;
     new_pits[player.homepit] += new_pits[opposite];
     new_pits[opposite] = 0;
@@ -116,7 +133,7 @@ function updateBoard(c_pits, index, player) {
 function pit_click(index) {
   if (
     player1.valid_moves(pits).length === 0 &&
-    player1.valid_moves(pits).length === 0
+    player2.valid_moves(pits).length === 0
   ) {
     endgame();
     return;
@@ -131,31 +148,9 @@ function pit_click(index) {
       player1.updatetotal(pits);
       player2.updatetotal(pits);
       if (player2.valid_moves(pits).length > 0) {
-        if (AI) {
-          player1.setTurn();
-          player2.setTurn();
-          while (player2.isnext) {
-            console.log("AI baby");
-            pits = updateBoard(
-              pits,
-              getAImove(player2, pits, difficulty),
-              player2
-            );
-            player1.updatetotal(pits);
-            player2.updatetotal(pits);
-            if (!end_on_homepit) {
-              console.log("I'm here!");
-              player1.setTurn();
-              player2.setTurn();
-            } else {
-              console.log("Homepit baby");
-              end_on_homepit = !end_on_homepit;
-            }
-          }
-        } else {
-          player1.setTurn();
-          player2.setTurn();
-        }
+        player1.setTurn();
+        player2.setTurn();
+        playAImove();
       } else if (player1.valid_moves(pits).length === 0) {
         endgame();
       }
@@ -187,6 +182,12 @@ function pit_click(index) {
  */
 function setAI(yes) {
   AI = yes;
+}
+
+function playAImove() {
+    if(player2.isnext && !game_over) {
+        pit_click(getAImove(player2, pits, difficulty));
+    }
 }
 
 //cosmetic functions
