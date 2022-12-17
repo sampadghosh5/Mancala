@@ -11,3 +11,5 @@ function geteasyAImove(c_pits, player, random) {
     let i = (random) ? (Math.floor(Math.random() * validmoves.length)) : 0;
     return validmoves[i];
 }
+
+export {geteasyAImove};

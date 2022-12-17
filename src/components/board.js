@@ -103,14 +103,6 @@ function newgame(e) {
     player2.setTurn();
   }
   p1Turn();
-  /*
-  // @ts-ignore
-  document.getElementById("win").src = ""
-  // @ts-ignore
-  document.getElementById("lose").src = ""
-  */
-  // @ts-ignore
-  document.getElementById("game").style.display = "block";
   console.log("new game")
 }
 
@@ -242,7 +234,7 @@ function pit_click(index) {
   }
 }
 
-/**
+/** function called on load to enable/disable AI functionality
  * @param {boolean} yes
  */
 function setAI(yes) {
@@ -265,18 +257,19 @@ function playAImove() {
 }
 
 //cosmetic functions
-// @ts-ignore
+
+// functions for changing pit backgrounds on hover to designate valid moves
 function changeBackgroundP1(e) {
   e.target.style.background = "red";
 }
-// @ts-ignore
 function changeBackgroundP2(e) {
   e.target.style.background = "blue";
 }
 function resetBackground(e) {
   e.target.style.background = "";
 }
-// @ts-ignore
+
+// Sets pot to have mouseover function
 function settogglable(id, player) {
   var pot = document.getElementById(id);
   if (player == 1) {
@@ -286,11 +279,10 @@ function settogglable(id, player) {
     // @ts-ignore
     pot.addEventListener("mouseenter", changeBackgroundP2);
   }
-
   // @ts-ignore
   pot.addEventListener("mouseleave", resetBackground);
 }
-// @ts-ignore
+// Resets mouseover function
 function setuntogglable(id) {
   var pot = document.getElementById(id);
   // @ts-ignore
@@ -301,6 +293,7 @@ function setuntogglable(id) {
   //foo.removeEventListener('mouseleave',resetBackground);
 }
 
+// sets up mouseover for red/player 1
 function p1Turn() {
   if(game_over) console.trace();
   for (var n = 1; n < 7; n++) {
@@ -314,6 +307,7 @@ function p1Turn() {
   document.getElementById("player").style.color = "red";
 }
 
+// sets up mouseover for blue/player 2
 function p2Turn() {
   if(game_over) console.trace();
   for (var n = 13; n > 6; n--) {
