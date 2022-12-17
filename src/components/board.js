@@ -14,7 +14,7 @@ let pits = Array(14).fill(3);
 pits[0] = 0;
 pits[7] = 0;
 let AI = true;
-const difficulty = 1;
+const difficulty = 8;
 let end_on_homepit = false;
 let game_over = false;
 
@@ -25,10 +25,11 @@ player1.setTurn();
 function endgame() {
   console.log("Game over!");
   game_over = true;
-  for(let i = 1; i < 13; i++) {
+  for(let i = 1; i < 14; i++) {
     if(i === player1.homepit) {
         continue;
     }
+    console.log("Pit: " + i + ". Player1's pit: " + player1.ismypit(pits, i) + ". Player2's pit: " + player2.ismypit(pits,i) + ".")
     if(player1.ismypit(pits, i)) {
         pits[player1.homepit] += pits[i];
         pits[i] = 0;
@@ -42,8 +43,9 @@ function endgame() {
   // @ts-ignore
   document.getElementById("game").style.display = "none";
   // @ts-ignore
-    document.getElementById("backButton").innerText = "Try Again";
-  if (pits[7] > pits[0]) {
+  document.getElementById("backButton").innerText = "Try Again";
+  if (pits[player1.homepit] > pits[player2.homepit]) {
+    //Red has won!
     // @ts-ignore
     document.getElementById("player").innerText = "Red Wins!!";
     // @ts-ignore
@@ -51,11 +53,20 @@ function endgame() {
     // @ts-ignore
     // document.getElementById("win").src = "/static/media/win.4f08588f34e6c5873b9d.png";
     
-  } else {
+  } else if (pits[player1.homepit] < pits[player2.homepit]) {
+    //Blue has won!
     // @ts-ignore
     document.getElementById("player").innerText = "Blue Wins!!";
     // @ts-ignore
     document.getElementById("player").style.color = "blue";
+    // @ts-ignore
+    // document.getElementById("lose").src = "/static/media/lose.89c7dd3d7e3806d71567.png";
+  } else if (pits[player1.homepit] === pits[player2.homepit]) {
+    //It's a draw!
+    // @ts-ignore
+    document.getElementById("player").innerText = "It's a Draw";
+    // @ts-ignore
+    document.getElementById("player").style.color = "yellow";
     // @ts-ignore
     // document.getElementById("lose").src = "/static/media/lose.89c7dd3d7e3806d71567.png";
   }
@@ -65,7 +76,12 @@ function newgame(e) {
   pits = Array(14).fill(3);
   pits[0] = 0;
   pits[7] = 0;
-  player1.setTurn();
+  game_over = false;
+  end_on_homepit = false;
+  if(!player1.isnext) {
+    player1.setTurn();
+    player2.setTurn();
+  }
   p1Turn();
   /*
   // @ts-ignore
@@ -101,7 +117,7 @@ async function flash(i, color) {
 function updateBoard(c_pits, index, player) {
   let i = index;
   let new_pits = c_pits.slice();
-  console.log(new_pits);
+  //console.log(new_pits);
   let carry = new_pits[i];
   if (carry > 0) new_pits[i] = 0;
   i++;
@@ -128,9 +144,8 @@ function updateBoard(c_pits, index, player) {
   }
   i--;
   // if the last marble fell in a home pot, the player gets another turn.
-  console.log(player.homepit);
-  console.log(i);
   if (i == player.homepit) {
+    console.log("Homepit!");
     end_on_homepit = true;
     if(AI == false){
         player1.setTurn();
@@ -152,8 +167,9 @@ function updateBoard(c_pits, index, player) {
  * @param {any} index
  */
 function pit_click(index) {
+  if(game_over) return;
   if (
-    player1.valid_moves(pits).length === 0 &&
+    player1.valid_moves(pits).length === 0 ||
     player2.valid_moves(pits).length === 0
   ) {
     endgame();
@@ -164,8 +180,12 @@ function pit_click(index) {
       player1.setTurn();
       player2.setTurn();
     }
-    if (player1.valid_moves(pits).includes(index)) {
+    else if (player1.valid_moves(pits).includes(index)) {
       pits = updateBoard(pits, index, player1);
+      if(end_on_homepit) {
+        end_on_homepit = !end_on_homepit;
+        return;
+      }
       player1.updatetotal(pits);
       player2.updatetotal(pits);
       if (player2.valid_moves(pits).length > 0) {
@@ -174,6 +194,7 @@ function pit_click(index) {
         if(AI) playAImove();
       } else if (player1.valid_moves(pits).length === 0) {
         endgame();
+        return;
       }
     }
   } else if (player2.isnext) {
@@ -181,8 +202,12 @@ function pit_click(index) {
       player1.setTurn();
       player2.setTurn();
     }
-    if (player2.valid_moves(pits).includes(index)) {
+    else if (player2.valid_moves(pits).includes(index)) {
       pits = updateBoard(pits, index, player2);
+      if(end_on_homepit) {
+        end_on_homepit = !end_on_homepit;
+        return;
+      }
       player2.updatetotal(pits);
       player1.updatetotal(pits);
       if (player1.valid_moves(pits).length > 0) {
@@ -190,12 +215,15 @@ function pit_click(index) {
         player2.setTurn();
       } else if (player2.valid_moves(pits).length === 0) {
         endgame();
+        return;
       }
     }
   } else {
   }
-  if (player1.isnext) p1Turn();
-  else if (player2.isnext) p2Turn();
+  if(!game_over) {
+    if (player1.isnext) p1Turn();
+    else if (player2.isnext) p2Turn();
+  }
 }
 
 /**
@@ -206,8 +234,12 @@ function setAI(yes) {
 }
 
 function playAImove() {
-    if(player2.isnext && !game_over) {
+    while(player2.isnext && !game_over) {
         pit_click(getAImove(player2, pits, difficulty));
+        if(end_on_homepit) {
+            end_on_homepit = !end_on_homepit;
+            return;
+        }
     }
 }
 
@@ -249,6 +281,7 @@ function setuntogglable(id) {
 }
 
 function p1Turn() {
+  if(game_over) console.trace();
   for (var n = 1; n < 7; n++) {
     settogglable(n, 1);
     setuntogglable(14 - n);
@@ -261,6 +294,7 @@ function p1Turn() {
 }
 
 function p2Turn() {
+  if(game_over) console.trace();
   for (var n = 13; n > 6; n--) {
     settogglable(n, 2);
     setuntogglable(14 - n);

@@ -1,17 +1,18 @@
 //@ts-check
 
-import {player1, player2} from './board.js';
+import {pits, player1, player2} from './board.js';
 
 /**
  * @param {Array} c_pits
  * @param {any} index
  * @param {import("./player.js").Player} player
  */
-function update_pitsv2(c_pits, index, player) {
+//creates a pit structure based on a move, different from update board as it returns who goes next too.
+//And removes animation components.
+function update_pits(c_pits, index, player) {
     let nplayer = nextplayer(player);
     let i = index;
-    let new_pits = Array();
-    new_pits = [c_pits.slice()];
+    let new_pits = c_pits.slice();
     let carry = new_pits[i];
     if (carry > 0) new_pits[i] = 0;
     i++;
@@ -43,15 +44,18 @@ function update_pitsv2(c_pits, index, player) {
         new_pits[opposite] = 0;
     }
 
-    new_pits.push(nplayer);
+    let myReturn = Array();
+    myReturn.push(new_pits);
+    myReturn.push(nplayer);
     //console.log(new_pits);  
-    return new_pits;
+    return myReturn;
 }
 
 /**
  * @param {Array} c_pits
  * @param {import("./player.js").Player} player
  */
+//checks if player has no more moves
 function gameover(c_pits, player) {
     return (player.valid_moves(c_pits).length === 0);
 }
@@ -60,18 +64,16 @@ function gameover(c_pits, player) {
  * @param {Array} c_pits
  * @param {import("./player.js").Player} player
  */
-function evalplayer(c_pits, player) {
-    let total = c_pits[player.homepit];
-    const lastpit = (player.homepit === 0) ? 14 : player.homepit;
-    for(let i = (lastpit - 1); i > (lastpit - 7); i--) {
-        total += c_pits[i];
-    }
-    return total;
+/*primitive static evaluation function, returns the difference between the seeds player has
+in their homepit vs how many opponent has in theirs */
+function evalpits(c_pits, player) {
+    return (c_pits[player.homepit] - c_pits[nextplayer(player).homepit]);
 }
 
 /**
  * @param {import("./player.js").Player} player
  */
+//returns the next player
 function nextplayer(player) {
     let nextplayer = (player === player1) ? player2 : player1;
     return nextplayer;
@@ -81,6 +83,9 @@ function nextplayer(player) {
  * @param {any} c_pits
  * @param {any} player
  */
+
+/*a weighted evaluation function, if there was enough time, we could have used machine learning to change the weights
+but with randomised weights, it has moderate success */
 function evalpitsv2(c_pits, player) {
     if (c_pits[player.homepit] >= 18) return Infinity;
     const opponent = nextplayer(player);
@@ -92,7 +97,7 @@ function evalpitsv2(c_pits, player) {
     if(gameover(c_pits, player)) {
         const lastpit = (opponent.homepit === 0) ? 14 : opponent.homepit;
         for(let i = (lastpit - 1); i > (lastpit - 7); i--) {
-            if(c_pits[i] > 0) {
+            if(c_pits[i] > 0 && opponent.ismypit(c_pits, i)) {
                 opp_gain += c_pits[i];
             }
         }
@@ -101,21 +106,24 @@ function evalpitsv2(c_pits, player) {
         h3 = (c_pits[opponent.homepit] + opp_gain - 18);
     }
 
-    return ((50*h1)+(20*h2)-(1000*h3));
+    return ((100*h1)+(50*h2)-(200*h3));
 }
 
 
 //returns [ideal move, maximum minimum score following ideal score]
+//Uses alpha-beta pruning to cut down on unnecessary recursions
 /**
  * @param {import("./player.js").Player} player
  * @param {Array} c_pits
  * @param {number} depth
  * @param {boolean} maximizing
+ * @param {number} alpha
+ * @param {number} beta
  */
-function maxiMin(player, c_pits, depth, maximizing) {
+function maxiMin(player, c_pits, depth, alpha, beta, maximizing) {
     //if we have reached desired recursion depth or we have reached endgame scenario, we return
-    if (depth === -1 || gameover(c_pits, player)) {
-        return [null, evalpitsv2(c_pits, player)];
+    if (depth === 0 || gameover(c_pits, player)) {
+        return [null, evalpits(c_pits, player)];
     }
 
     //get all valid moves for current player
@@ -124,27 +132,54 @@ function maxiMin(player, c_pits, depth, maximizing) {
 
     //This is the move to beat with recursion
     let bestcase = Array();
-    bestcase = [valid_moves[0], evalpitsv2(c_pits, player)];
+    bestcase = [valid_moves[0], evalpits(c_pits, player)];
 
-
+    //for every valid move,
     for(let i = 0; i < valid_moves.length; i++) {
-        //our pits after our move
-        let new_pits = update_pitsv2(c_pits, valid_moves[i], player);
+        //create a new board after said move
+        let new_pits = update_pits(c_pits, valid_moves[i], player);
 
+        //if we get another turn, we want to maximize for the next recursion too
         if (new_pits[1] === player) {
             maximizing = !maximizing;
         }
         
-        const nextScore = maxiMin(new_pits[1], new_pits[0], depth - 1, !maximizing);
+        //Recurse on this board, with player as the next player
+        const nextScore = maxiMin(new_pits[1], new_pits[0], depth - 1, alpha, beta, !maximizing);
 
+        //repeated turn, fixes maximizing for the following conditional statements
         if (new_pits[1] === player) {
             maximizing = !maximizing;
         }
         
+        /*If we are maximizing and our new score is more than the best score we had found till,
+        set best score to the new score we found and store the move it takes.
+        Similarly, if we are minimizing and the new score we found is less than the one we had found till then,
+        set best score to this new score.
+
+        Alpha-beta pruning: if we already have a new minimun in beta and alpha exceeds it,
+        the next branches aren't woth exploring, so we break the for loop and return.
+        */
         if(maximizing && nextScore[1] >= bestcase[1]) {
+            if(player2 !== player) {
+                console.log("We are maximizing for the wrong player!")
+            }
             bestcase = [valid_moves[i], nextScore[1]];
+            alpha = Math.max(alpha, nextScore[1])
+            if (beta <= alpha) {
+                //console.log("pruned");
+                break;
+            }
         } else if (!maximizing && nextScore[1] <= bestcase[1]) {
+            if(player1 !== player) {
+                console.log("We are minimizing for the wrong player!")
+            }
             bestcase = [valid_moves[i], nextScore[1]];
+            beta = Math.min(beta, nextScore[1]);
+            if (beta <= alpha) {
+                //console.log("pruned");
+                break;
+            }
         }
     }
 
@@ -156,8 +191,10 @@ function maxiMin(player, c_pits, depth, maximizing) {
  * @param {Array} c_pits
  * @param {number} depth
  */
+
+//gets move from maximin function and returns the index for the ideal move
 function getAImove(player, c_pits, depth) {
-    return maxiMin(player, c_pits, depth, true)[0];
+    return maxiMin(player, c_pits, depth, -Infinity, Infinity, true)[0];
 }
 
 export {getAImove};
