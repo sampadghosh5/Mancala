@@ -41,7 +41,7 @@ function endgame() {
     }
   }
   // @ts-ignore
-  document.getElementById("game").style.display = "none";
+  // document.getElementById("game").style.display = "none";
   // @ts-ignore
   document.getElementById("backButton").innerText = "Try Again";
   if (pits[player1.homepit] > pits[player2.homepit]) {
@@ -147,10 +147,6 @@ function updateBoard(c_pits, index, player) {
   if (i == player.homepit) {
     console.log("Homepit!");
     end_on_homepit = true;
-    if(AI == false){
-        player1.setTurn();
-        player2.setTurn();
-    }
   }
   // if we end in an empty pot, steal from opposite
   else if (new_pits[i] == 1 && player.ismypit(new_pits, i)) {
