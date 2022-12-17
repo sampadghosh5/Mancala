@@ -1,22 +1,42 @@
 //@ts-check
 
 // @ts-ignore
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import React from "react";
-import SelectInput from "@mui/material/Select/SelectInput";
+
 import { getAImove } from "./maximin.js";
 import { Player } from "./player.js";
-import { handleBreakpoints } from "@mui/system";
-import Win from "./win.png";
-import Lose from "./lose.png";
+import { geteasyAImove } from "./easyAI.js";
 
+//initialization of the board
 let pits = Array(14).fill(3);
 pits[0] = 0;
 pits[7] = 0;
 let AI = true;
-const difficulty = 8;
+
+//end_on_homepit is used to give players a extra turn if they land on homepit, gameover is end execution conditional
 let end_on_homepit = false;
 let game_over = false;
+
+//this code is for switching between minimax ai, or random easy ai
+let whichAI = 1;
+let randomized = false;
+/**
+ * @param {boolean} random
+ */
+function useEasyAI(random) {
+  whichAI = 2;
+  randomized = random;
+  return;
+}
+
+//difficulty = recursion depth for minimax algorithm
+let difficulty = 8;
+/**
+ * @param {number} newDifficulty
+ */
+function setDifficulty(newDifficulty) {
+  difficulty = newDifficulty;
+}
+
 
 const player1 = new Player(7);
 const player2 = new Player(0);
@@ -233,14 +253,19 @@ function setAI(yes) {
   AI = yes;
 }
 
+
 function playAImove() {
-    while(player2.isnext && !game_over) {
-        pit_click(getAImove(player2, pits, difficulty));
-        if(end_on_homepit) {
-            end_on_homepit = !end_on_homepit;
-            return;
-        }
+  while(player2.isnext && !game_over) {
+    if(whichAI === 1) {
+      pit_click(getAImove(player2, pits, difficulty));
+    } else {
+      pit_click(geteasyAImove(pits, player2, randomized));
     }
+    if(end_on_homepit) {
+        end_on_homepit = !end_on_homepit;
+        return;
+    }
+  }
 }
 
 //cosmetic functions
@@ -305,4 +330,4 @@ function p2Turn() {
   document.getElementById("player").style.color = "blue";
 }
 
-export { pits, updateBoard, pit_click, newgame, player1, player2, setAI };
+export { pits, updateBoard, pit_click, newgame, player1, player2, setAI, setDifficulty, useEasyAI };
