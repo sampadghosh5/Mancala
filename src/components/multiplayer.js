@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Marble1 from "./marble1.png";
-import { pits, pit_click, updateBoard, newgame, setAI } from "./board.js";
+import { pits, pit_click, newgame, setAI } from "./board.js";
 import "./styles.css";
 class Multiplayer extends Component {
   state = {
@@ -10,6 +10,11 @@ class Multiplayer extends Component {
 
   handleClick(i) {
     pit_click(i);
+    this.setState({ counter: this.counter + 1 });
+  }
+
+  updateui() {
+    newgame();
     this.setState({ counter: this.counter + 1 });
   }
 
@@ -205,7 +210,7 @@ class Multiplayer extends Component {
         </div>
         <div className="row my-5 text">
           <div className="col text-center">
-            <Link to="/start">
+            <Link to="/start" onClick={() => {this.updateui()}}>
               <button
                 id="backButton"
                 className="btn btn-outline-primary btn-lg mx-auto backButton"
