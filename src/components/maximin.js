@@ -117,10 +117,8 @@ function evalpitsv2(c_pits, player) {
  * @param {Array} c_pits
  * @param {number} depth
  * @param {boolean} maximizing
- * @param {number} alpha
- * @param {number} beta
  */
-function maxiMin(player, c_pits, depth, alpha, beta, maximizing) {
+function maxiMin(player, c_pits, depth, maximizing) {
     //if we have reached desired recursion depth or we have reached endgame scenario, we return
     if (depth === 0 || gameover(c_pits, player)) {
         return [null, evalpits(c_pits, player)];
@@ -145,7 +143,7 @@ function maxiMin(player, c_pits, depth, alpha, beta, maximizing) {
         }
         
         //Recurse on this board, with player as the next player
-        const nextScore = maxiMin(new_pits[1], new_pits[0], depth - 1, alpha, beta, !maximizing);
+        const nextScore = maxiMin(new_pits[1], new_pits[0], depth - 1, !maximizing);
 
         //repeated turn, fixes maximizing for the following conditional statements
         if (new_pits[1] === player) {
@@ -156,30 +154,28 @@ function maxiMin(player, c_pits, depth, alpha, beta, maximizing) {
         set best score to the new score we found and store the move it takes.
         Similarly, if we are minimizing and the new score we found is less than the one we had found till then,
         set best score to this new score.
-
-        Alpha-beta pruning: if we already have a new minimun in beta and alpha exceeds it,
-        the next branches aren't woth exploring, so we break the for loop and return.
         */
+
         if(maximizing && nextScore[1] >= bestcase[1]) {
             if(player2 !== player) {
                 console.log("We are maximizing for the wrong player!")
             }
             bestcase = [valid_moves[i], nextScore[1]];
-            alpha = Math.max(alpha, nextScore[1])
+            /*alpha = Math.max(alpha, nextScore[1])
             if (beta <= alpha) {
                 //console.log("pruned");
                 break;
-            }
+            } */
         } else if (!maximizing && nextScore[1] <= bestcase[1]) {
             if(player1 !== player) {
                 console.log("We are minimizing for the wrong player!")
             }
             bestcase = [valid_moves[i], nextScore[1]];
-            beta = Math.min(beta, nextScore[1]);
+            /*beta = Math.min(beta, nextScore[1]);
             if (beta <= alpha) {
                 //console.log("pruned");
                 break;
-            }
+            } */
         }
     }
 
@@ -194,7 +190,7 @@ function maxiMin(player, c_pits, depth, alpha, beta, maximizing) {
 
 //gets move from maximin function and returns the index for the ideal move
 function getAImove(player, c_pits, depth) {
-    return maxiMin(player, c_pits, depth, -Infinity, Infinity, true)[0];
+    return maxiMin(player, c_pits, depth, true)[0];
 }
 
 export {getAImove};
