@@ -34,7 +34,7 @@ function useminimax() {
 }
 
 //difficulty = recursion depth for minimax algorithm
-let difficulty = 6;
+let difficulty = 8;
 /**
  * @param {number} newDifficulty
  */
