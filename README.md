@@ -3,6 +3,9 @@
 
 A digital implementation of Mancala with an easy CPU opponent, a challenge CPU opponent, and a local multiplayer version.
 
+### `npm start`
+Will run the app at http://localhost:3000
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
