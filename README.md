@@ -1,5 +1,5 @@
 # Mancala Game
-## Sampad Ghosh, Emma Beveridge, Olivia Brown
+### Sampad Ghosh, Emma Beveridge, Olivia Brown
 
 A digital implementation of Mancala with an easy CPU opponent, a challenge CPU opponent, and a local multiplayer version.
 
