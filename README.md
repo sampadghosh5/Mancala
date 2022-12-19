@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Mancala Game
+## Sampad Ghosh, Emma Beveridge, Olivia Brown
+
+A digital implementation of Mancala with an easy CPU opponent, a challenge CPU opponent, and a local multiplayer version.
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
