@@ -30,18 +30,17 @@ function useEasyAI(random) {
 
 function useminimax() {
   whichAI = 1;
-  return
+  return;
 }
 
 //difficulty = recursion depth for minimax algorithm
-let difficulty = 8;
+let difficulty = 9;
 /**
  * @param {number} newDifficulty
  */
 function setDifficulty(newDifficulty) {
   difficulty = newDifficulty;
 }
-
 
 const player1 = new Player(7);
 const player2 = new Player(0);
@@ -50,19 +49,27 @@ player1.setTurn();
 function endgame() {
   console.log("Game over!");
   game_over = true;
-  for(let i = 1; i < 14; i++) {
-    if(i === player1.homepit) {
-        continue;
+  for (let i = 1; i < 14; i++) {
+    if (i === player1.homepit) {
+      continue;
     }
-    console.log("Pit: " + i + ". Player1's pit: " + player1.ismypit(pits, i) + ". Player2's pit: " + player2.ismypit(pits,i) + ".")
-    if(player1.ismypit(pits, i)) {
-        pits[player1.homepit] += pits[i];
-        pits[i] = 0;
+    console.log(
+      "Pit: " +
+        i +
+        ". Player1's pit: " +
+        player1.ismypit(pits, i) +
+        ". Player2's pit: " +
+        player2.ismypit(pits, i) +
+        "."
+    );
+    if (player1.ismypit(pits, i)) {
+      pits[player1.homepit] += pits[i];
+      pits[i] = 0;
     }
 
-    if(player2.ismypit(pits, i)) {
-        pits[player2.homepit] += pits[i];
-        pits[i] = 0;
+    if (player2.ismypit(pits, i)) {
+      pits[player2.homepit] += pits[i];
+      pits[i] = 0;
     }
   }
   // @ts-ignore
@@ -77,7 +84,6 @@ function endgame() {
     document.getElementById("player").style.color = "red";
     // @ts-ignore
     // document.getElementById("win").src = "/static/media/win.4f08588f34e6c5873b9d.png";
-    
   } else if (pits[player1.homepit] < pits[player2.homepit]) {
     //Blue has won!
     // @ts-ignore
@@ -103,7 +109,7 @@ function newgame(e) {
   pits[7] = 0;
   game_over = false;
   end_on_homepit = false;
-  if(!player1.isnext) {
+  if (!player1.isnext) {
     player1.setTurn();
     player2.setTurn();
   }
@@ -180,7 +186,7 @@ function updateBoard(c_pits, index, player) {
  * @param {any} index
  */
 function pit_click(index) {
-  if(game_over) return;
+  if (game_over) return;
   if (
     player1.valid_moves(pits).length === 0 ||
     player2.valid_moves(pits).length === 0
@@ -192,10 +198,9 @@ function pit_click(index) {
     if (player1.valid_moves(pits).length === 0) {
       player1.setTurn();
       player2.setTurn();
-    }
-    else if (player1.valid_moves(pits).includes(index)) {
+    } else if (player1.valid_moves(pits).includes(index)) {
       pits = updateBoard(pits, index, player1);
-      if(end_on_homepit) {
+      if (end_on_homepit) {
         end_on_homepit = !end_on_homepit;
         return;
       }
@@ -204,7 +209,7 @@ function pit_click(index) {
       if (player2.valid_moves(pits).length > 0) {
         player1.setTurn();
         player2.setTurn();
-        if(AI) playAImove();
+        if (AI) playAImove();
       } else if (player1.valid_moves(pits).length === 0) {
         endgame();
         return;
@@ -214,10 +219,9 @@ function pit_click(index) {
     if (player2.valid_moves(pits).length === 0) {
       player1.setTurn();
       player2.setTurn();
-    }
-    else if (player2.valid_moves(pits).includes(index)) {
+    } else if (player2.valid_moves(pits).includes(index)) {
       pits = updateBoard(pits, index, player2);
-      if(end_on_homepit) {
+      if (end_on_homepit) {
         end_on_homepit = !end_on_homepit;
         return;
       }
@@ -233,7 +237,7 @@ function pit_click(index) {
     }
   } else {
   }
-  if(!game_over) {
+  if (!game_over) {
     if (player1.isnext) p1Turn();
     else if (player2.isnext) p2Turn();
   }
@@ -246,19 +250,18 @@ function setAI(yes) {
   AI = yes;
 }
 
-
 function playAImove() {
-  while(player2.isnext && !game_over) {
-    if(whichAI === 1) {
+  while (player2.isnext && !game_over) {
+    if (whichAI === 1) {
       //console.log("Minimax used.")
       pit_click(getAImove(player2, pits, difficulty));
     } else {
       //console.log("Easy AI used.");
       pit_click(geteasyAImove(pits, player2, randomized));
     }
-    if(end_on_homepit) {
-        end_on_homepit = !end_on_homepit;
-        return;
+    if (end_on_homepit) {
+      end_on_homepit = !end_on_homepit;
+      return;
     }
   }
 }
@@ -302,7 +305,7 @@ function setuntogglable(id) {
 
 // sets up mouseover for red/player 1
 function p1Turn() {
-  if(game_over) console.trace();
+  if (game_over) console.trace();
   for (var n = 1; n < 7; n++) {
     settogglable(n, 1);
     setuntogglable(14 - n);
@@ -316,7 +319,7 @@ function p1Turn() {
 
 // sets up mouseover for blue/player 2
 function p2Turn() {
-  if(game_over) console.trace();
+  if (game_over) console.trace();
   for (var n = 13; n > 6; n--) {
     settogglable(n, 2);
     setuntogglable(14 - n);
@@ -327,4 +330,15 @@ function p2Turn() {
   document.getElementById("player").style.color = "blue";
 }
 
-export { pits, updateBoard, pit_click, newgame, player1, player2, setAI, setDifficulty, useEasyAI, useminimax };
+export {
+  pits,
+  updateBoard,
+  pit_click,
+  newgame,
+  player1,
+  player2,
+  setAI,
+  setDifficulty,
+  useEasyAI,
+  useminimax,
+};
