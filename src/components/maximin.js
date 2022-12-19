@@ -67,6 +67,8 @@ function gameover(c_pits, player) {
 /*primitive static evaluation function, returns the difference between the seeds player has
 in their homepit vs how many opponent has in theirs */
 function evalpits(c_pits, player) {
+    if(c_pits[player.homepit] > 18) return Infinity;
+    if(c_pits[nextplayer(player).homepit] > 18) return -Infinity;
     return (c_pits[player.homepit] - c_pits[nextplayer(player).homepit]);
 }
 
