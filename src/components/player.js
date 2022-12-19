@@ -35,6 +35,10 @@ class Player {
         this.isnext = !this.isnext;
     }
 
+    /**
+     * @param {Array} c_pits
+     * @param {number} i
+     */
     ismypit(c_pits, i) {
         let mypits = [];
         const lastpit = (this.homepit === 0) ? 14 : this.homepit;

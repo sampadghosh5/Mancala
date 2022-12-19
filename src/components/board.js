@@ -28,8 +28,13 @@ function useEasyAI(random) {
   return;
 }
 
+function useminimax() {
+  whichAI = 1;
+  return
+}
+
 //difficulty = recursion depth for minimax algorithm
-let difficulty = 8;
+let difficulty = 6;
 /**
  * @param {number} newDifficulty
  */
@@ -103,7 +108,7 @@ function newgame(e) {
     player2.setTurn();
   }
   p1Turn();
-  console.log("new game")
+  //console.log("new game")
 }
 
 function sleep(ms) {
@@ -245,8 +250,10 @@ function setAI(yes) {
 function playAImove() {
   while(player2.isnext && !game_over) {
     if(whichAI === 1) {
+      //console.log("Minimax used.")
       pit_click(getAImove(player2, pits, difficulty));
     } else {
+      //console.log("Easy AI used.");
       pit_click(geteasyAImove(pits, player2, randomized));
     }
     if(end_on_homepit) {
@@ -320,4 +327,4 @@ function p2Turn() {
   document.getElementById("player").style.color = "blue";
 }
 
-export { pits, updateBoard, pit_click, newgame, player1, player2, setAI, setDifficulty, useEasyAI };
+export { pits, updateBoard, pit_click, newgame, player1, player2, setAI, setDifficulty, useEasyAI, useminimax };

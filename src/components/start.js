@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { useEasyAI, useminimax } from "./board";
 import "./styles.css";
 class Start extends Component {
   state = {};
@@ -13,7 +14,7 @@ class Start extends Component {
         </div>
         <div className="row my-5 text">
           <div className="col text-center">
-            <Link to="/normal">
+            <Link to="/normal" onClick={() => useEasyAI()}>
               <button className="btn btn-success btn-lg mx-auto backButton">
                 NORMAL
               </button>
@@ -22,7 +23,7 @@ class Start extends Component {
         </div>
         <div className="row my-5 text">
           <div className="col text-center">
-            <Link to="/challenge">
+            <Link to="/challenge" onClick={() => useminimax()}>
               <button className="btn btn-danger btn-lg mx-auto backButton">
                 EXTREME
               </button>
